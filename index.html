@@ -113,9 +113,9 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
 .end-emojis{font-size:36px;line-height:1.9;margin-bottom:14px;}
 .end-sig{font-family:var(--sf);font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:28px;}
 
-/* Play Music Button Custom */
+/* Custom Music Button Style */
 #play-music-btn {
-    background: #9c6878; /* var(--ink3) */
+    background: #9c6878;
     margin: 20px 0;
     box-shadow: 0 4px 15px rgba(156, 104, 120, 0.3);
 }
@@ -124,7 +124,7 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
 <body>
 
 <audio id="letter-song" preload="auto">
-  <source src="https://raw.githubusercontent.com/krunal1284/hope/main/song.mp3" type="audio/mpeg">
+  <source src="https://raw.githubusercontent.com/Krunal1284/hope/main/song.mp3" type="audio/mpeg">
 </audio>
 
 <div id="scene-open">
@@ -355,18 +355,17 @@ function playSpecialSong() {
   const song = document.getElementById('letter-song');
   const btn = document.getElementById('play-music-btn');
   
-  // Set volume (30%)
   song.volume = 0.3;
 
-  // Jump to 1:00 (60 seconds)
-  song.currentTime = 60;
-
   song.play().then(() => {
+    // Jump to 1:00 only after it starts playing
+    song.currentTime = 60;
+    
     btn.innerHTML = "Playing... 🎵";
     btn.disabled = true;
     btn.style.opacity = "0.6";
     
-    // Stop after 40 seconds (at 1:40)
+    // Stop at 1:40 (total play time 40 seconds)
     setTimeout(() => {
       song.pause();
       btn.innerHTML = "Song played 💖";
@@ -374,7 +373,7 @@ function playSpecialSong() {
 
   }).catch(err => {
     console.error("Playback Error:", err);
-    alert("Please tap again to play!");
+    alert("Please tap once more!");
   });
 }
 </script>
