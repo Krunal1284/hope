@@ -103,9 +103,9 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
 #scene-end{display:none;position:fixed;inset:0;background:linear-gradient(155deg,#ffe0ec,#fff5f8,#fce8f3);flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:300;overflow:hidden;padding:40px 20px;}
 #scene-end.show{display:flex;}
 .end-rain{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.ri{position:absolute;animation:rfall linear infinite;pointer-events:none;}
-@keyframes rfall{from{transform:translateY(-50px) rotate(0deg);opacity:0;}6%{opacity:1;}90%{opacity:1;}to{transform:translateY(112vh) rotate(380deg);opacity:0;}}
-.end-wrap{position:relative;z-index:2;animation:fadeUp 1s ease both;max-width:520px;}
+.ri{position:absolute;animation:rfall linear infinite;pointer-events:none;opacity:0.5; /* Made emojis lighter */}
+@keyframes rfall{from{transform:translateY(-50px) rotate(0deg);opacity:0;}6%{opacity:0.5;} /* Peaked opacity lower */90%{opacity:0.5;}to{transform:translateY(112vh) rotate(380deg);opacity:0;}}
+.end-wrap{position:relative;z-index:10; /* Brought text to front */animation:fadeUp 1s ease both;max-width:520px;}
 .end-wrap h2{font-family:var(--dance);font-size:clamp(34px,8vw,62px);color:var(--rose2);margin-bottom:20px;line-height:1.2;}
 .end-wrap p{font-family:var(--lora);font-style:italic;font-size:17px;color:var(--ink2);margin-bottom:16px;line-height:1.85;}
 .end-big{font-size:58px;margin-bottom:18px;display:block;animation:hb 1.4s ease-in-out infinite;}
@@ -113,11 +113,15 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
 .end-emojis{font-size:36px;line-height:1.9;margin-bottom:14px;}
 .end-sig{font-family:var(--sf);font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:28px;}
 
-/* Custom Music Button Style */
+/* Custom Music Button with Pause Support */
 #play-music-btn {
     background: #9c6878;
     margin: 20px 0;
     box-shadow: 0 4px 15px rgba(156, 104, 120, 0.3);
+    transition: background 0.3s ease;
+}
+#play-music-btn.playing {
+    background: var(--ink2); /* Darker when playing */
 }
 </style>
 </head>
@@ -350,31 +354,58 @@ function showEnding(){
   }
 }
 
-/* ── MUSIC LOGIC ── */
+/* ── MUSIC LOGIC (Play/Pause Support) ── */
+let isPlaying = false;
+let firstPlay = true;
+
 function playSpecialSong() {
   const song = document.getElementById('letter-song');
   const btn = document.getElementById('play-music-btn');
   
-  song.volume = 0.3;
-
-  song.play().then(() => {
-    // Jump to 1:00 only after it starts playing
+  if (firstPlay) {
+    // First time clicking: Set volume and jump to 1:00
+    song.volume = 0.3;
     song.currentTime = 60;
+    firstPlay = false;
     
-    btn.innerHTML = "Playing... 🎵";
-    btn.disabled = true;
-    btn.style.opacity = "0.6";
-    
-    // Stop at 1:40 (total play time 40 seconds)
-    setTimeout(() => {
-      song.pause();
-      btn.innerHTML = "Song played 💖";
-    }, 40000);
+    // Safety check: sometimescurrentTime jump fails on initial play
+    song.addEventListener('playing', () => {
+        if(song.currentTime < 60) song.currentTime = 60;
+    }, { once: true });
+  }
 
-  }).catch(err => {
-    console.error("Playback Error:", err);
-    alert("Please tap once more!");
-  });
+  if (isPlaying) {
+    // Pause functionality
+    song.pause();
+    btn.innerHTML = "Resume song 🎵";
+    btn.classList.remove('playing');
+    isPlaying = false;
+  } else {
+    // Play/Resume functionality
+    song.play().then(() => {
+        btn.innerHTML = "Pause song ⏸️";
+        btn.classList.add('playing');
+        isPlaying = true;
+
+        // Reset state after the full 40 seconds duration (reaches 1:40)
+        const timeLeft = (100 - song.currentTime) * 1000;
+        if(timeLeft > 0) {
+            setTimeout(() => {
+                if(song.currentTime >= 100) { // Safety check to ensure we hit end point
+                    song.pause();
+                    btn.innerHTML = "Song played 💖";
+                    btn.classList.remove('playing');
+                    btn.disabled = true; // Button finished
+                    isPlaying = false;
+                }
+            },timeLeft);
+        }
+
+    }).catch(err => {
+      console.error("Playback Error:", err);
+      // alert("Please tap again to play!");
+    });
+  }
 }
 </script>
 </body>
