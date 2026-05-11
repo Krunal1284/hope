@@ -113,22 +113,20 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
 .end-emojis{font-size:36px;line-height:1.9;margin-bottom:14px;}
 .end-sig{font-family:var(--sf);font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:28px;}
 
-/* Special Music Button Styles */
+/* Play Music Button Custom */
 #play-music-btn {
-    background: var(--ink3);
+    background: #9c6878; /* var(--ink3) */
     margin: 20px 0;
-    font-size: 14px;
+    box-shadow: 0 4px 15px rgba(156, 104, 120, 0.3);
 }
 </style>
 </head>
 <body>
 
-<!-- Audio Element -->
-<audio id="letter-song">
-  <source src="YOUR_DIRECT_GITHUB_LINK_HERE.mp3" type="audio/mpeg">
+<audio id="letter-song" preload="auto">
+  <source src="https://raw.githubusercontent.com/krunal1284/hope/main/song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ═══ OPENING ═══ -->
 <div id="scene-open">
   <div class="open-scene">
     <div class="rose-wrap" onclick="openLetter()">
@@ -177,10 +175,8 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
   </div>
 </div>
 
-<!-- ═══ FLOWER LAYER ═══ -->
 <div id="flower-layer"></div>
 
-<!-- ═══ SCREEN 1 ═══ -->
 <div class="screen" id="screen1">
   <div class="lhero">
     <div class="lhero-name">For Ishita</div>
@@ -192,55 +188,30 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
         <p class="l-date">May 2026</p>
         <p class="l-dear">Dear Ishuu,</p>
         <div class="l-body">
-
           <p>I still remember 4th December so clearly. When you told me you liked me, I genuinely couldn't process that it was real. I was so happy and shocked at the same time. Slowly we started talking more — first sharing numbers, then calls. And our first call… God, we were both so shy but that day felt so special to me. I still remember smiling like an idiot after that call ended 😭</p>
-
           <p>Then slowly we became comfortable with each other. I still remember that day when you, Vishal, Riya, Shakshi and everyone were going out and you told me to come too. Ayush was there as well. And somewhere while walking I was about to slip and the way you instantly said <em>"sambhal ke"</em>… I know it sounds like such a small thing, but that moment made me feel so loved.</p>
-
           <p>And that same day when we went to the fort… remember how we were sitting alone together, both blushing so much and barely even talking properly? And then that first kiss on the cheek… God, I still remember every second of that moment. I don't think I'll ever forget how fast my heartbeat was that day 😭</p>
-
           <p>Meeting outside school even for 5 minutes used to make my whole day. Even when Diya was around and we couldn't talk much, just seeing you felt enough.</p>
-
           <p>And that road near your area connected to the college ground… our first proper hug and kiss there. The location wasn't even special but the moment was unforgettable for me.</p>
-
           <p>Then when we used to meet at the college ground, our matching t-shirts, those cute photos… I still remember those entire days so clearly. I was genuinely obsessed with you. Like genuinely genuinely 😭</p>
-
           <p>When I came to your house, the way we danced together and made that cute video… God, what beautiful days those were. And our pizza date where we were feeding each other so lovingly 🥹 Sometimes I still randomly remember those moments and just stare somewhere thinking <em>"yaar kya din the woh…"</em></p>
-
           <p>And the Maggie you made 😭 I still remember how professionally and quickly you were making it. It was just a normal Maggie, but God, it felt so special and tasted sooo sooo good 😭 genuinely one of the tastiest things I've eaten in my whole life. Of course, you made it, so <em>mujhe woh tasty toh lagna hi tha</em> 🥹 Then sitting together on the sofa, feeding each other so lovingly while eating it… such a simple moment, but it became one of my favourite memories because it was with you.</p>
-
           <div class="divider"></div>
-
           <p>Sometimes now when I look back, it genuinely feels like life became black and white after you left. Back then everything felt colourful. Even small things used to feel exciting because somehow you were part of them.</p>
-
           <p>I still remember the gift you brought for me — the handwritten letter, the polaroids, and at the end of that beautiful letter you wrote <em>"I love you soo much sweetie"</em> 🥺 because that's what you used to call me. And I was such an idiot that I didn't even know what polaroids were. I thought the white borders were left to cut, so I literally cut them 😭😭 God, I was so dumb.</p>
-
           <p>And I still have that letter safely kept inside my wallet. I genuinely still keep it carefully.</p>
-
           <p>And the movie date in Vapi… we barely even cared about the movie itself, we just wanted to spend time together. Those small moments with you genuinely felt special no matter where we were.</p>
-
           <p>I used to call you <em>Ishuu</em> so lovingly 🥹</p>
-
           <p>When I left for diploma, whenever I came back home, roaming around with you on your scooty felt so peaceful. Honestly sometimes I used to feel bad that I didn't even have my own scooty then. At home they used to say, <em>"Tu hostel mein rehta hai, scooty leke kya karega?"</em> so we never got one at that time. But now things at home are actually much better, everything is more stable now, and I finally have one too. Sometimes I think about all those small things and wish I could relive those days once.</p>
-
           <p>And your birthday… even while staying in hostel I tried so hard to manage your gift through Diya. Maybe the gift wasn't perfect and maybe I wish I could've given you something even better, but whatever savings I had at that time, I used all of it happily for you because making you happy genuinely made me happy.</p>
-
           <div class="divider"></div>
-
           <p>The truth is, I loved you too much. So much that I became insecure, possessive and controlling sometimes. If someone commented on your post, I used to get jealous thinking <em>"she's mine."</em> Back then I thought that was love, but now I understand love also needs trust, peace and freedom.</p>
-
           <p>I was genuinely serious about you. In my heart I had already imagined a whole future with you — marriage, success, life, everything. And maybe because I was so scared of losing you, I slowly started ruining things myself with fights, overthinking and restrictions.</p>
-
           <p>Today when I look back at the way I behaved sometimes, I genuinely feel bad. You deserved softness, reassurance, effort and princess treatment from me… not stress and fights.</p>
-
           <p>The breakup genuinely broke me. My hands and legs were literally shaking because it felt like my whole future disappeared in one moment. I was ready to fight with anyone for you, even at home if needed, because I loved you that much.</p>
-
           <p>And honestly… the day you left, it felt like 90% of the happiness in my life disappeared too.</p>
-
           <p>Maybe Bhagwan ne mujhe issliye punish kiya because instead of treating a devi like a devi, I let my fear, insecurity and possessiveness overpower the love I had for you. You genuinely deserved softness, trust, peace and care from me… but many times I gave you stress, restrictions and overthinking instead. And honestly, when I look back at everything now, that regret hurts me the most 🥺</p>
-
           <p class="ctr"><em>Sorry devi ji 🥹</em></p>
-
         </div>
         <div class="l-sign">
           <p class="l-sign-from">Always yours,</p>
@@ -256,7 +227,6 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
   </div>
 </div>
 
-<!-- ═══ SCREEN 2 ═══ -->
 <div class="screen" id="screen2">
   <div class="lhero">
     <div class="lhero-name">Mandir mein… 🪔</div>
@@ -268,13 +238,9 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
         <p class="l-date">May 2026</p>
         <p class="l-dear">Dear Ishuu,</p>
         <div class="l-body">
-
           <p>Whenever I go to mandir, I genuinely pray… not to change anything forcefully, but just for <em>peace between us.</em> For closure, for healing, for whatever is right for both of us 🥺</p>
-
           <p>And sometimes when I make a wish in front of God and a flower falls, it just gives a strange feeling… <em>like maybe things are already in God's hands.</em></p>
-
           <p>When I went to Bappa, I noticed flowers falling a few times while praying about us. I don't know what it means, and maybe it means nothing… <em>but it still stayed in my heart.</em></p>
-
         </div>
         <div class="l-sign">
           <p class="l-sign-from">With a quiet prayer,</p>
@@ -290,7 +256,6 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
   </div>
 </div>
 
-<!-- ═══ ENDING ═══ -->
 <div id="scene-end">
   <div class="end-rain" id="end-rain"></div>
   <div class="end-wrap">
@@ -299,19 +264,18 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
     <p>I don't know what the future holds for us.</p>
     <p>But I really hope that someday we can at least be in peace with each other…</p>
     
-    <!-- Added Song Button -->
     <button class="next-btn" id="play-music-btn" onclick="playSpecialSong()">
        Play a song for you 🎵
     </button>
 
-    <p><em>Whatever you decide, I will respect it and accept it peacefully.</em></p>
+    <p style="margin-top:20px;"><em>Whatever you decide, I will respect it and accept it peacefully.</em></p>
     <div class="end-emojis">🥹 🌸 😭 🌷 💌 🌺 🥹</div>
     <p class="end-sig">— Krunal</p>
   </div>
 </div>
 
 <script>
-/* petals on open screen */
+/* ── BACKGROUND PETALS ── */
 const openEl=document.getElementById('scene-open');
 const ep=['🌸','🌷','🌺','✿'];
 for(let i=0;i<20;i++){
@@ -322,11 +286,10 @@ for(let i=0;i<20;i++){
   openEl.appendChild(s);
 }
 
-/* open letter */
+/* ── OPENING LOGIC ── */
 let opened=false;
 function openLetter(){
   if(opened)return;opened=true;
-
   const m=document.querySelector('.mouth-letter');
   m.style.transform='translateY(-80px) scale(1.6) rotate(-5deg)';
   m.style.opacity='0';
@@ -340,7 +303,7 @@ function openLetter(){
   },500);
 }
 
-/* screen navigation */
+/* ── NAVIGATION ── */
 function goToScreen(n){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   if(n<=2){
@@ -352,7 +315,7 @@ function goToScreen(n){
   }
 }
 
-/* side flowers */
+/* ── SIDE FLOWERS ── */
 const flLayer=document.getElementById('flower-layer');
 function startFlowers(){
   const fl=['🌸','🌷','🌺'];
@@ -368,7 +331,7 @@ function startFlowers(){
   },600);
 }
 
-/* ending */
+/* ── ENDING LOGIC ── */
 function showEnding(){
   document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
   document.getElementById('scene-end').classList.add('show');
@@ -387,31 +350,31 @@ function showEnding(){
   }
 }
 
-/* Song Playback Logic */
+/* ── MUSIC LOGIC ── */
 function playSpecialSong() {
   const song = document.getElementById('letter-song');
   const btn = document.getElementById('play-music-btn');
   
-  // Set volume to 30%
+  // Set volume (30%)
   song.volume = 0.3;
-  
-  // Start from 1 minute (60 seconds)
+
+  // Jump to 1:00 (60 seconds)
   song.currentTime = 60;
-  
+
   song.play().then(() => {
     btn.innerHTML = "Playing... 🎵";
-    btn.style.opacity = "0.7";
     btn.disabled = true;
+    btn.style.opacity = "0.6";
     
-    // Stop the song after 40 seconds (at 1:40 total)
+    // Stop after 40 seconds (at 1:40)
     setTimeout(() => {
       song.pause();
       btn.innerHTML = "Song played 💖";
-    }, 40000); 
-    
-  }).catch(error => {
-    // Handling browsers that block auto-play or broken links
-    alert("Please make sure the song link is correct!");
+    }, 40000);
+
+  }).catch(err => {
+    console.error("Playback Error:", err);
+    alert("Please tap again to play!");
   });
 }
 </script>
