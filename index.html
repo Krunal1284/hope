@@ -8,23 +8,24 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --sf: -apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;
-  --lora: 'Lora', Georgia, serif;
-  --dance: 'Dancing Script', cursive;
-  --rose: #d4547a;
-  --rose2: #b03060;
-  --bg: #fdf0f4;
-  --paper: #fff8f5;
+:root{
+  --sf:-apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;
+  --lora:'Lora',serif;
+  --dance:'Dancing Script',cursive;
+  --rose:#d4547a;
+  --rose2:#b03060;
+  --bg:#fdf0f4;
+  --paper:#fff8f5;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
-html{scroll-behavior:smooth;}
 body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;}
+html{scroll-behavior:smooth;}
 
 .screen{display:none;min-height:100vh;}
 .screen.active{display:block;}
 
+/* END SCREEN */
 #scene-end{
   display:none;
   position:fixed;
@@ -34,25 +35,27 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;}
   align-items:center;
   justify-content:center;
   text-align:center;
-  z-index:300;
+  z-index:999;
 }
 #scene-end.show{display:flex;}
 
-.end-wrap h2{
-  font-family:var(--dance);
-  font-size:40px;
-  color:var(--rose2);
-}
-
 .end-btn{
   margin-top:20px;
-  padding:14px 28px;
+  padding:12px 24px;
   border:none;
-  border-radius:30px;
+  border-radius:25px;
   background:var(--rose);
   color:white;
   font-size:16px;
   cursor:pointer;
+}
+
+h1{
+  text-align:center;
+  padding-top:120px;
+  color:var(--rose2);
+  font-family:var(--dance);
+  font-size:40px;
 }
 </style>
 </head>
@@ -64,58 +67,59 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;}
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- ═══ SCREEN 1 (KEEP YOUR FULL CONTENT HERE) ═══ -->
+<!-- SCREEN 1 -->
 <div class="screen active" id="screen1">
-  <h1 style="text-align:center;padding-top:100px;">Your Love Letter 💌</h1>
+  <h1>For Ishita 💌</h1>
 
-  <div style="text-align:center;margin-top:50px;">
-    <button onclick="goToEnd()" style="padding:12px 24px;border:none;background:#d4547a;color:#fff;border-radius:20px;">
-      Continue →
+  <div style="text-align:center;margin-top:40px;">
+    <button onclick="goEnd()" 
+    style="padding:12px 24px;border:none;border-radius:20px;background:#d4547a;color:white;">
+      Open Ending →
     </button>
   </div>
 </div>
 
-<!-- ═══ END SCREEN ═══ -->
+<!-- END SCREEN -->
 <div id="scene-end">
-  <div class="end-wrap">
-    <span style="font-size:50px;">💖</span>
-    <h2>Always & Forever</h2>
-    <p style="margin-top:10px;">Final Message for Ishita</p>
+  <span style="font-size:50px;">💖</span>
+  <h2 style="font-family:'Dancing Script';font-size:40px;color:#b03060;">
+    Always & Forever
+  </h2>
 
-    <!-- MUSIC BUTTON (IMPORTANT FIX) -->
-    <button class="end-btn" onclick="startMusic()">
-      🎵 Play Final Song
-    </button>
-  </div>
+  <p style="margin-top:10px;">Final Message ❤️</p>
+
+  <button class="end-btn" onclick="startMusic()">
+    🎵 Play Song
+  </button>
 </div>
 
 <script>
 
-function goToEnd(){
+/* GO TO END SCREEN */
+function goEnd(){
   document.getElementById("screen1").classList.remove("active");
   document.getElementById("scene-end").classList.add("show");
 }
 
-/* 🎵 GUARANTEED WORKING MUSIC */
+/* 🎵 MUSIC (FIXED + WORKING) */
 function startMusic(){
   const music = document.getElementById("bg-music");
 
-  music.currentTime = 60; // start at 1:00
+  setTimeout(() => {
+    music.currentTime = 60; // start at 1:00
 
-  const playPromise = music.play();
+    music.play().then(() => {
 
-  if (playPromise !== undefined) {
-    playPromise.then(() => {
-      
-      // stop at 1:40 (40 sec later)
+      // stop after 40 sec (till 1:40)
       setTimeout(() => {
         music.pause();
       }, 40000);
 
-    }).catch(err => {
+    }).catch(() => {
       alert("Tap again to enable sound 🔊");
     });
-  }
+
+  }, 500); // 0.5 sec delay
 }
 
 </script>
