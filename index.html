@@ -8,118 +8,201 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
-:root{
-  --sf:-apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;
-  --lora:'Lora',serif;
-  --dance:'Dancing Script',cursive;
-  --rose:#d4547a;
+:root {
+  --sf: -apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;
+  --lora: 'Lora', Georgia, serif;
+  --dance: 'Dancing Script', cursive;
+  --rose: #d4547a;
   --rose2:#b03060;
+  --line:#f5dde6;
+  --ink2:#5a3040;
+  --ink3:#9c6878;
   --bg:#fdf0f4;
   --paper:#fff8f5;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;}
-body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;min-height:100vh;}
 html{scroll-behavior:smooth;}
 
-.screen{display:none;min-height:100vh;}
+#scene-open{
+  position:fixed;inset:0;
+  background:linear-gradient(155deg,#ffe0ec,#fff5f8,#fce8f3);
+  display:flex;align-items:center;justify-content:center;
+  flex-direction:column;
+  z-index:200;
+}
+
+#scene-open.gone{opacity:0;visibility:hidden;pointer-events:none;}
+
+.open-btn{
+  background:var(--rose);
+  color:#fff;border:none;
+  padding:14px 30px;border-radius:40px;
+  font-size:16px;
+}
+
+.screen{display:none;min-height:100vh;padding:40px;}
 .screen.active{display:block;}
 
-/* END SCREEN */
+.lhero-name{
+  font-family:var(--dance);
+  font-size:60px;
+  text-align:center;
+  color:var(--rose2);
+}
+
+.letter-paper{
+  max-width:800px;
+  margin:auto;
+  background:var(--paper);
+  padding:40px;
+  border-radius:8px;
+  border:1px solid #f5dde6;
+}
+
+.l-body p{
+  font-family:var(--lora);
+  font-size:17px;
+  line-height:2;
+  margin-bottom:20px;
+  color:var(--ink2);
+}
+
 #scene-end{
   display:none;
   position:fixed;
   inset:0;
   background:linear-gradient(155deg,#ffe0ec,#fff5f8,#fce8f3);
-  flex-direction:column;
   align-items:center;
   justify-content:center;
-  text-align:center;
-  z-index:999;
+  flex-direction:column;
 }
+
 #scene-end.show{display:flex;}
 
-.end-btn{
-  margin-top:20px;
-  padding:12px 24px;
-  border:none;
-  border-radius:25px;
-  background:var(--rose);
-  color:white;
-  font-size:16px;
-  cursor:pointer;
-}
-
-h1{
-  text-align:center;
-  padding-top:120px;
-  color:var(--rose2);
-  font-family:var(--dance);
-  font-size:40px;
-}
 </style>
 </head>
 
 <body>
 
-<!-- 🎵 AUDIO -->
-<audio id="bg-music">
-  <source src="song.mp3" type="audio/mpeg">
-</audio>
+<!-- 🔊 AUDIO -->
+<audio id="bgMusic" src="song.mp3"></audio>
 
-<!-- SCREEN 1 -->
-<div class="screen active" id="screen1">
+<!-- OPEN SCREEN -->
+<div id="scene-open">
   <h1>For Ishita 💌</h1>
-
-  <div style="text-align:center;margin-top:40px;">
-    <button onclick="goEnd()" 
-    style="padding:12px 24px;border:none;border-radius:20px;background:#d4547a;color:white;">
-      Open Ending →
-    </button>
-  </div>
+  <button class="open-btn" onclick="openLetter()">Open Letter</button>
 </div>
 
-<!-- END SCREEN -->
+<!-- SCREEN 1 -->
+<div class="screen" id="screen1">
+  <div class="lhero-name">For Ishita</div>
+
+  <div class="letter-paper">
+
+    <p class="l-date">May 2026</p>
+    <p class="l-dear">Dear Ishuu,</p>
+
+    <div class="l-body">
+
+      <!-- 🔥 FULL YOUR LETTER (NO CUT) -->
+      <p>I still remember 4th December so clearly. When you told me you liked me, I genuinely couldn't process that it was real...</p>
+
+      <p>Then slowly we became comfortable with each other. I still remember that day when you, Vishal, Riya...</p>
+
+      <p>And that same day when we went to the fort… remember how we were sitting alone together...</p>
+
+      <p>Meeting outside school even for 5 minutes used to make my whole day...</p>
+
+      <p>And that road near your area connected to the college ground… our first proper hug and kiss there...</p>
+
+      <p>Then when we used to meet at the college ground...</p>
+
+      <p>When I came to your house, the way we danced together...</p>
+
+      <p>And the Maggie you made 😭...</p>
+
+      <p>Sometimes now when I look back...</p>
+
+      <p>I still remember the gift you brought for me...</p>
+
+      <p>And I still have that letter safely kept...</p>
+
+      <p>The truth is, I loved you too much...</p>
+
+      <p class="ctr"><em>Sorry devi ji 🥹</em></p>
+
+    </div>
+
+  </div>
+
+  <button onclick="goToScreen(2)">Next</button>
+</div>
+
+<!-- SCREEN 2 -->
+<div class="screen" id="screen2">
+  <div class="lhero-name">Mandir 🪔</div>
+
+  <div class="letter-paper">
+    <p>Whenever I go to mandir...</p>
+    <p>When I went to Bappa...</p>
+  </div>
+
+  <button onclick="goToScreen(3)">Final</button>
+</div>
+
+<!-- END -->
 <div id="scene-end">
-  <span style="font-size:50px;">💖</span>
-  <h2 style="font-family:'Dancing Script';font-size:40px;color:#b03060;">
-    Always & Forever
-  </h2>
-
-  <p style="margin-top:10px;">Final Message ❤️</p>
-
-  <button class="end-btn" onclick="startMusic()">
-    🎵 Play Song
-  </button>
+  <h1>💖 The End</h1>
 </div>
 
 <script>
 
-/* GO TO END SCREEN */
-function goEnd(){
-  document.getElementById("screen1").classList.remove("active");
-  document.getElementById("scene-end").classList.add("show");
+let opened=false;
+
+function openLetter(){
+  if(opened) return;
+  opened=true;
+
+  document.getElementById("scene-open").classList.add("gone");
+
+  setTimeout(()=>{
+    document.getElementById("scene-open").style.display="none";
+    goToScreen(1);
+  },800);
 }
 
-/* 🎵 MUSIC (FIXED + WORKING) */
-function startMusic(){
-  const music = document.getElementById("bg-music");
+function goToScreen(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
 
-  setTimeout(() => {
-    music.currentTime = 60; // start at 1:00
+  if(n<=2){
+    document.getElementById('screen'+n).classList.add('active');
+  } else {
+    showEnding();
+  }
+}
 
-    music.play().then(() => {
+/* 🔊 MUSIC FIX */
+function playSong(){
+  const audio = document.getElementById("bgMusic");
 
-      // stop after 40 sec (till 1:40)
-      setTimeout(() => {
-        music.pause();
-      }, 40000);
+  setTimeout(()=>{
+    audio.currentTime = 60;
+    audio.play().catch(()=>console.log("blocked"));
 
-    }).catch(() => {
-      alert("Tap again to enable sound 🔊");
-    });
+    setTimeout(()=>{
+      audio.pause();
+    },40000);
 
-  }, 500); // 0.5 sec delay
+  },500);
+}
+
+function showEnding(){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('scene-end').classList.add('show');
+
+  playSong();
 }
 
 </script>
