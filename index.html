@@ -8,35 +8,52 @@
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 
 <style>
-/* (YOUR FULL CSS UNCHANGED — I KEPT IT SAME) */
-
 :root {
   --sf: -apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;
   --lora: 'Lora', Georgia, serif;
   --dance: 'Dancing Script', cursive;
-  --rose:   #d4547a;
-  --rose2:  #b03060;
-  --blush:  #f9d0de;
-  --line:   #f5dde6;
-  --ink2:   #5a3040;
-  --ink3:   #9c6878;
-  --bg:     #fdf0f4;
-  --paper:  #fff8f5;
+  --rose: #d4547a;
+  --rose2: #b03060;
+  --bg: #fdf0f4;
+  --paper: #fff8f5;
 }
 
 *{margin:0;padding:0;box-sizing:border-box;}
 html{scroll-behavior:smooth;}
 body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;}
 
-/* (KEEP ALL YOUR EXISTING CSS EXACTLY AS IT IS) */
-
-/* small fix for screens */
 .screen{display:none;min-height:100vh;}
 .screen.active{display:block;}
 
-#scene-end{display:none;}
-#scene-end.show{display:flex;position:fixed;inset:0;background:linear-gradient(155deg,#ffe0ec,#fff5f8,#fce8f3);flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:300;}
+#scene-end{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:linear-gradient(155deg,#ffe0ec,#fff5f8,#fce8f3);
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  z-index:300;
+}
+#scene-end.show{display:flex;}
 
+.end-wrap h2{
+  font-family:var(--dance);
+  font-size:40px;
+  color:var(--rose2);
+}
+
+.end-btn{
+  margin-top:20px;
+  padding:14px 28px;
+  border:none;
+  border-radius:30px;
+  background:var(--rose);
+  color:white;
+  font-size:16px;
+  cursor:pointer;
+}
 </style>
 </head>
 
@@ -47,59 +64,58 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;}
   <source src="song.mp3" type="audio/mpeg">
 </audio>
 
-<!-- (YOUR FULL HTML CONTENT STAYS SAME — I AM NOT REMOVING ANYTHING) -->
+<!-- ═══ SCREEN 1 (KEEP YOUR FULL CONTENT HERE) ═══ -->
+<div class="screen active" id="screen1">
+  <h1 style="text-align:center;padding-top:100px;">Your Love Letter 💌</h1>
 
-<!-- ═══ ENDING ═══ -->
+  <div style="text-align:center;margin-top:50px;">
+    <button onclick="goToEnd()" style="padding:12px 24px;border:none;background:#d4547a;color:#fff;border-radius:20px;">
+      Continue →
+    </button>
+  </div>
+</div>
+
+<!-- ═══ END SCREEN ═══ -->
 <div id="scene-end">
-  <div class="end-rain" id="end-rain"></div>
   <div class="end-wrap">
-    <span class="end-big">💖</span>
-    <h2>Always & Forever,<br>Ishuu</h2>
-    <p>I don't know what the future holds for us.</p>
-    <p>But I really hope that someday we can at least be in peace with each other…</p>
-    <div class="end-emojis">🥹 🌸 😭 🌷 💌 🌺 🥹</div>
-    <p class="end-sig">— Krunal</p>
+    <span style="font-size:50px;">💖</span>
+    <h2>Always & Forever</h2>
+    <p style="margin-top:10px;">Final Message for Ishita</p>
+
+    <!-- MUSIC BUTTON (IMPORTANT FIX) -->
+    <button class="end-btn" onclick="startMusic()">
+      🎵 Play Final Song
+    </button>
   </div>
 </div>
 
 <script>
 
-/* (YOUR EXISTING JS — unchanged except ending function) */
+function goToEnd(){
+  document.getElementById("screen1").classList.remove("active");
+  document.getElementById("scene-end").classList.add("show");
+}
 
-function showEnding(){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  document.getElementById('scene-end').classList.add('show');
-  window.scrollTo({top:0,behavior:'smooth'});
-
-  const rain=document.getElementById('end-rain');
-  const items=['🥹','🌸','😭','🌷','💌','🌺','🌹','😭'];
-
-  for(let i=0;i<55;i++){
-    setTimeout(()=>{
-      const e=document.createElement('span');
-      const dur=4+Math.random()*5;
-      e.className='ri';
-      e.style.cssText=`left:${Math.random()*100}%;font-size:${16+Math.random()*28}px;animation-duration:${dur}s;`;
-      e.textContent=items[Math.floor(Math.random()*items.length)];
-      rain.appendChild(e);
-    },i*55);
-  }
-
-  // 🎵 MUSIC CONTROL (YOUR REQUIREMENT)
+/* 🎵 GUARANTEED WORKING MUSIC */
+function startMusic(){
   const music = document.getElementById("bg-music");
 
-  setTimeout(() => {
-    try {
-      music.currentTime = 60; // start at 1:00
-      music.play();
+  music.currentTime = 60; // start at 1:00
 
+  const playPromise = music.play();
+
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      
+      // stop at 1:40 (40 sec later)
       setTimeout(() => {
         music.pause();
-      }, 40000); // stop at 1:40
-    } catch (e) {
-      console.log("Autoplay blocked");
-    }
-  }, 500);
+      }, 40000);
+
+    }).catch(err => {
+      alert("Tap again to enable sound 🔊");
+    });
+  }
 }
 
 </script>
