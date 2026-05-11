@@ -1,390 +1,373 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta http-equiv="Content-Style-Type" content="text/css">
-  <title></title>
-  <meta name="Generator" content="Cocoa HTML Writer">
-  <meta name="CocoaVersion" content="2685.3">
-  <style type="text/css">
-    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000}
-    p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; -webkit-text-stroke: #000000; min-height: 14.0px}
-    span.s1 {font-kerning: none}
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Ishita 💌</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --sf: -apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;
+  --lora: 'Lora', Georgia, serif;
+  --dance: 'Dancing Script', cursive;
+  --rose:   #d4547a;
+  --rose2:  #b03060;
+  --blush:  #f9d0de;
+  --line:   #f5dde6;
+  --ink2:   #5a3040;
+  --ink3:   #9c6878;
+  --bg:     #fdf0f4;
+  --paper:  #fff8f5;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;}
+
+/* ── OPENING ── */
+#scene-open{
+  position:fixed;inset:0;
+  background:linear-gradient(155deg,#ffe0ec 0%,#fff5f8 45%,#fce8f3 100%);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  z-index:200;overflow:hidden;
+  transition:opacity 0.8s ease,visibility 0.8s ease;
+}
+#scene-open.gone{opacity:0;visibility:hidden;pointer-events:none;}
+.fp{position:absolute;pointer-events:none;animation:fpdrop linear infinite;}
+@keyframes fpdrop{0%{transform:translateY(-30px) rotate(0deg);opacity:0;}8%{opacity:0.35;}90%{opacity:0.35;}100%{transform:translateY(108vh) rotate(350deg);opacity:0;}}
+.open-scene{display:flex;flex-direction:column;align-items:center;animation:fadeUp 0.9s ease both;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+.rose-wrap{position:relative;animation:roseFloat 2.8s ease-in-out infinite;cursor:pointer;margin-bottom:8px;}
+@keyframes roseFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+.mouth-letter{position:absolute;top:-10px;right:-10px;font-size:30px;filter:drop-shadow(0 3px 6px rgba(200,60,100,0.3));animation:mwag 1s ease-in-out infinite;transition:all 0.5s ease;}
+@keyframes mwag{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(-24deg) translateY(-3px)}}
+.open-title{font-family:var(--dance);font-size:clamp(38px,9vw,62px);color:var(--rose2);margin-top:24px;margin-bottom:20px;line-height:1;}
+.open-btn{background:var(--rose);color:white;border:none;border-radius:50px;padding:14px 36px;font-family:var(--sf);font-size:16px;font-weight:500;cursor:pointer;box-shadow:0 6px 24px rgba(212,84,122,0.35);transition:transform 0.15s,box-shadow 0.2s;letter-spacing:-0.2px;}
+.open-btn:hover{box-shadow:0 8px 30px rgba(212,84,122,0.45);}
+.open-btn:active{transform:scale(0.96);}
+
+/* ── SCREENS ── */
+.screen{display:none;min-height:100vh;padding:0 0 80px;}
+.screen.active{display:block;}
+#flower-layer{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden;}
+@keyframes sidefall{0%{transform:translateY(-30px) rotate(0deg);opacity:0;}8%{opacity:0.5;}92%{opacity:0.5;}100%{transform:translateY(106vh) rotate(310deg);opacity:0;}}
+
+.lhero{text-align:center;padding:70px 20px 36px;}
+.lhero-name{font-family:var(--dance);font-size:clamp(46px,11vw,74px);color:var(--rose2);line-height:1;}
+
+.letter-outer{max-width:760px;margin:0 auto;padding:0 20px 20px;}
+.letter-paper{
+  position:relative;background:var(--paper);border-radius:4px 4px 6px 6px;
+  padding:clamp(32px,6vw,60px) clamp(36px,7vw,72px) clamp(32px,6vw,56px);
+  box-shadow:0 1px 2px rgba(180,60,90,0.06),0 4px 8px rgba(180,60,90,0.07),0 10px 30px rgba(180,60,90,0.09),0 30px 60px rgba(180,60,90,0.08),-4px 0 20px rgba(180,60,90,0.04),4px 0 20px rgba(180,60,90,0.04);
+  border:0.5px solid rgba(212,84,122,0.12);
+  background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);
+  background-attachment:local;
+}
+.letter-paper::before{content:'';position:absolute;top:0;left:0;right:0;height:3.5px;background:linear-gradient(90deg,#f5a8c0,var(--rose),#f5a8c0);border-radius:4px 4px 0 0;}
+.letter-paper::after{content:'';position:absolute;top:0;bottom:0;left:80px;width:1px;background:rgba(212,84,122,0.15);pointer-events:none;}
+.margin-dots{position:absolute;top:20px;left:72px;display:flex;flex-direction:column;gap:6px;pointer-events:none;}
+.mdot{width:6px;height:6px;border-radius:50%;background:rgba(212,84,122,0.25);}
+.letter-content{position:relative;z-index:1;}
+.l-date{font-family:var(--sf);font-size:12px;font-weight:500;letter-spacing:2.5px;color:var(--ink3);text-transform:uppercase;margin-bottom:26px;}
+.l-dear{font-family:var(--dance);font-size:34px;color:var(--rose2);margin-bottom:28px;line-height:1;}
+.l-body p{font-family:var(--lora);font-size:clamp(15px,2.2vw,17px);font-weight:400;line-height:2;color:var(--ink2);margin-bottom:26px;letter-spacing:0.02px;}
+.l-body p:last-child{margin-bottom:0;}
+.l-body em{color:var(--rose2);font-style:italic;}
+.l-body .ctr{text-align:center;font-size:19px !important;color:var(--rose2) !important;}
+.divider{width:56px;height:1px;background:linear-gradient(90deg,transparent,#f9d0de,transparent);margin:28px auto;}
+.l-sign{margin-top:40px;padding-top:28px;border-top:0.5px dashed rgba(212,84,122,0.3);}
+.l-sign-from{font-family:var(--lora);font-style:italic;font-size:15px;color:var(--ink3);margin-bottom:4px;}
+.l-sign-name{font-family:var(--dance);font-size:48px;color:var(--rose2);line-height:1.1;}
+
+/* ── NEXT BUTTON ── */
+.next-btn-wrap{text-align:center;margin-top:36px;padding-bottom:20px;}
+.next-btn{
+  display:inline-flex;align-items:center;gap:10px;
+  background:linear-gradient(135deg,#d4547a,#b03060);
+  color:white;border:none;border-radius:50px;
+  padding:16px 38px;
+  font-family:var(--sf);font-size:15px;font-weight:500;
+  cursor:pointer;
+  box-shadow:0 6px 28px rgba(212,84,122,0.4);
+  transition:transform 0.15s,box-shadow 0.2s;
+  letter-spacing:-0.1px;
+  animation:btnpulse 2.2s ease-in-out infinite;
+}
+@keyframes btnpulse{0%,100%{box-shadow:0 6px 28px rgba(212,84,122,0.4);}50%{box-shadow:0 8px 36px rgba(212,84,122,0.6);}}
+.next-btn:hover{transform:scale(1.03);}
+.next-btn:active{transform:scale(0.96);}
+.arrow{font-size:18px;display:inline-block;transition:transform 0.2s;}
+.next-btn:hover .arrow{transform:translateX(5px);}
+
+/* ── ENDING ── */
+#scene-end{display:none;position:fixed;inset:0;background:linear-gradient(155deg,#ffe0ec,#fff5f8,#fce8f3);flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:300;overflow:hidden;padding:40px 20px;}
+#scene-end.show{display:flex;}
+.end-rain{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
+.ri{position:absolute;animation:rfall linear infinite;pointer-events:none;}
+@keyframes rfall{from{transform:translateY(-50px) rotate(0deg);opacity:0;}6%{opacity:1;}90%{opacity:1;}to{transform:translateY(112vh) rotate(380deg);opacity:0;}}
+.end-wrap{position:relative;z-index:2;animation:fadeUp 1s ease both;max-width:520px;}
+.end-wrap h2{font-family:var(--dance);font-size:clamp(34px,8vw,62px);color:var(--rose2);margin-bottom:20px;line-height:1.2;}
+.end-wrap p{font-family:var(--lora);font-style:italic;font-size:17px;color:var(--ink2);margin-bottom:16px;line-height:1.85;}
+.end-big{font-size:58px;margin-bottom:18px;display:block;animation:hb 1.4s ease-in-out infinite;}
+@keyframes hb{0%,100%{transform:scale(1)}35%{transform:scale(1.18)}65%{transform:scale(1.1)}}
+.end-emojis{font-size:36px;line-height:1.9;margin-bottom:14px;}
+.end-sig{font-family:var(--sf);font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:28px;}
+</style>
 </head>
 <body>
-<p class="p1"><span class="s1">&lt;!DOCTYPE html&gt;</span></p>
-<p class="p1"><span class="s1">&lt;html lang="en"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta charset="UTF-8"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;title&gt;For Ishita 💌&lt;/title&gt;</span></p>
-<p class="p1"><span class="s1">&lt;link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&amp;family=Lora:ital,wght@0,400;0,500;1,400;1,500&amp;display=swap" rel="stylesheet"&gt;</span></p>
-<p class="p1"><span class="s1">&lt;style&gt;</span></p>
-<p class="p1"><span class="s1">:root {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--sf: -apple-system,"SF Pro Text","SF Pro Display","Helvetica Neue",sans-serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--lora: 'Lora', Georgia, serif;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--dance: 'Dancing Script', cursive;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--rose: <span class="Apple-converted-space">  </span>#d4547a;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--rose2:<span class="Apple-converted-space">  </span>#b03060;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--blush:<span class="Apple-converted-space">  </span>#f9d0de;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--line: <span class="Apple-converted-space">  </span>#f5dde6;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--ink2: <span class="Apple-converted-space">  </span>#5a3040;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--ink3: <span class="Apple-converted-space">  </span>#9c6878;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--bg: <span class="Apple-converted-space">    </span>#fdf0f4;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>--paper:<span class="Apple-converted-space">  </span>#fff8f5;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}</span></p>
-<p class="p1"><span class="s1">html{scroll-behavior:smooth;}</span></p>
-<p class="p1"><span class="s1">body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-smoothing:antialiased;min-height:100vh;}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* ── OPENING ── */</span></p>
-<p class="p1"><span class="s1">#scene-open{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>position:fixed;inset:0;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:linear-gradient(155deg,#ffe0ec 0%,#fff5f8 45%,#fce8f3 100%);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:flex;flex-direction:column;align-items:center;justify-content:center;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>z-index:200;overflow:hidden;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>transition:opacity 0.8s ease,visibility 0.8s ease;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">#scene-open.gone{opacity:0;visibility:hidden;pointer-events:none;}</span></p>
-<p class="p1"><span class="s1">.fp{position:absolute;pointer-events:none;animation:fpdrop linear infinite;}</span></p>
-<p class="p1"><span class="s1">@keyframes fpdrop{0%{transform:translateY(-30px) rotate(0deg);opacity:0;}8%{opacity:0.35;}90%{opacity:0.35;}100%{transform:translateY(108vh) rotate(350deg);opacity:0;}}</span></p>
-<p class="p1"><span class="s1">.open-scene{display:flex;flex-direction:column;align-items:center;animation:fadeUp 0.9s ease both;}</span></p>
-<p class="p1"><span class="s1">@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}</span></p>
-<p class="p1"><span class="s1">.rose-wrap{position:relative;animation:roseFloat 2.8s ease-in-out infinite;cursor:pointer;margin-bottom:8px;}</span></p>
-<p class="p1"><span class="s1">@keyframes roseFloat{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}</span></p>
-<p class="p1"><span class="s1">.mouth-letter{position:absolute;top:-10px;right:-10px;font-size:30px;filter:drop-shadow(0 3px 6px rgba(200,60,100,0.3));animation:mwag 1s ease-in-out infinite;transition:all 0.5s ease;}</span></p>
-<p class="p1"><span class="s1">@keyframes mwag{0%,100%{transform:rotate(-14deg)}50%{transform:rotate(-24deg) translateY(-3px)}}</span></p>
-<p class="p1"><span class="s1">.open-title{font-family:var(--dance);font-size:clamp(38px,9vw,62px);color:var(--rose2);margin-top:24px;margin-bottom:20px;line-height:1;}</span></p>
-<p class="p1"><span class="s1">.open-btn{background:var(--rose);color:white;border:none;border-radius:50px;padding:14px 36px;font-family:var(--sf);font-size:16px;font-weight:500;cursor:pointer;box-shadow:0 6px 24px rgba(212,84,122,0.35);transition:transform 0.15s,box-shadow 0.2s;letter-spacing:-0.2px;}</span></p>
-<p class="p1"><span class="s1">.open-btn:hover{box-shadow:0 8px 30px rgba(212,84,122,0.45);}</span></p>
-<p class="p1"><span class="s1">.open-btn:active{transform:scale(0.96);}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* ── SCREENS ── */</span></p>
-<p class="p1"><span class="s1">.screen{display:none;min-height:100vh;padding:0 0 80px;}</span></p>
-<p class="p1"><span class="s1">.screen.active{display:block;}</span></p>
-<p class="p1"><span class="s1">#flower-layer{position:fixed;inset:0;pointer-events:none;z-index:10;overflow:hidden;}</span></p>
-<p class="p1"><span class="s1">@keyframes sidefall{0%{transform:translateY(-30px) rotate(0deg);opacity:0;}8%{opacity:0.5;}92%{opacity:0.5;}100%{transform:translateY(106vh) rotate(310deg);opacity:0;}}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">.lhero{text-align:center;padding:70px 20px 36px;}</span></p>
-<p class="p1"><span class="s1">.lhero-name{font-family:var(--dance);font-size:clamp(46px,11vw,74px);color:var(--rose2);line-height:1;}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">.letter-outer{max-width:760px;margin:0 auto;padding:0 20px 20px;}</span></p>
-<p class="p1"><span class="s1">.letter-paper{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>position:relative;background:var(--paper);border-radius:4px 4px 6px 6px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:clamp(32px,6vw,60px) clamp(36px,7vw,72px) clamp(32px,6vw,56px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>box-shadow:0 1px 2px rgba(180,60,90,0.06),0 4px 8px rgba(180,60,90,0.07),0 10px 30px rgba(180,60,90,0.09),0 30px 60px rgba(180,60,90,0.08),-4px 0 20px rgba(180,60,90,0.04),4px 0 20px rgba(180,60,90,0.04);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>border:0.5px solid rgba(212,84,122,0.12);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-image:repeating-linear-gradient(transparent,transparent 31px,var(--line) 31px,var(--line) 32px);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background-attachment:local;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">.letter-paper::before{content:'';position:absolute;top:0;left:0;right:0;height:3.5px;background:linear-gradient(90deg,#f5a8c0,var(--rose),#f5a8c0);border-radius:4px 4px 0 0;}</span></p>
-<p class="p1"><span class="s1">.letter-paper::after{content:'';position:absolute;top:0;bottom:0;left:80px;width:1px;background:rgba(212,84,122,0.15);pointer-events:none;}</span></p>
-<p class="p1"><span class="s1">.margin-dots{position:absolute;top:20px;left:72px;display:flex;flex-direction:column;gap:6px;pointer-events:none;}</span></p>
-<p class="p1"><span class="s1">.mdot{width:6px;height:6px;border-radius:50%;background:rgba(212,84,122,0.25);}</span></p>
-<p class="p1"><span class="s1">.letter-content{position:relative;z-index:1;}</span></p>
-<p class="p1"><span class="s1">.l-date{font-family:var(--sf);font-size:12px;font-weight:500;letter-spacing:2.5px;color:var(--ink3);text-transform:uppercase;margin-bottom:26px;}</span></p>
-<p class="p1"><span class="s1">.l-dear{font-family:var(--dance);font-size:34px;color:var(--rose2);margin-bottom:28px;line-height:1;}</span></p>
-<p class="p1"><span class="s1">.l-body p{font-family:var(--lora);font-size:clamp(15px,2.2vw,17px);font-weight:400;line-height:2;color:var(--ink2);margin-bottom:26px;letter-spacing:0.02px;}</span></p>
-<p class="p1"><span class="s1">.l-body p:last-child{margin-bottom:0;}</span></p>
-<p class="p1"><span class="s1">.l-body em{color:var(--rose2);font-style:italic;}</span></p>
-<p class="p1"><span class="s1">.l-body .ctr{text-align:center;font-size:19px !important;color:var(--rose2) !important;}</span></p>
-<p class="p1"><span class="s1">.divider{width:56px;height:1px;background:linear-gradient(90deg,transparent,#f9d0de,transparent);margin:28px auto;}</span></p>
-<p class="p1"><span class="s1">.l-sign{margin-top:40px;padding-top:28px;border-top:0.5px dashed rgba(212,84,122,0.3);}</span></p>
-<p class="p1"><span class="s1">.l-sign-from{font-family:var(--lora);font-style:italic;font-size:15px;color:var(--ink3);margin-bottom:4px;}</span></p>
-<p class="p1"><span class="s1">.l-sign-name{font-family:var(--dance);font-size:48px;color:var(--rose2);line-height:1.1;}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* ── NEXT BUTTON ── */</span></p>
-<p class="p1"><span class="s1">.next-btn-wrap{text-align:center;margin-top:36px;padding-bottom:20px;}</span></p>
-<p class="p1"><span class="s1">.next-btn{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>display:inline-flex;align-items:center;gap:10px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>background:linear-gradient(135deg,#d4547a,#b03060);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>color:white;border:none;border-radius:50px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>padding:16px 38px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>font-family:var(--sf);font-size:15px;font-weight:500;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>cursor:pointer;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>box-shadow:0 6px 28px rgba(212,84,122,0.4);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>transition:transform 0.15s,box-shadow 0.2s;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>letter-spacing:-0.1px;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>animation:btnpulse 2.2s ease-in-out infinite;</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">@keyframes btnpulse{0%,100%{box-shadow:0 6px 28px rgba(212,84,122,0.4);}50%{box-shadow:0 8px 36px rgba(212,84,122,0.6);}}</span></p>
-<p class="p1"><span class="s1">.next-btn:hover{transform:scale(1.03);}</span></p>
-<p class="p1"><span class="s1">.next-btn:active{transform:scale(0.96);}</span></p>
-<p class="p1"><span class="s1">.arrow{font-size:18px;display:inline-block;transition:transform 0.2s;}</span></p>
-<p class="p1"><span class="s1">.next-btn:hover .arrow{transform:translateX(5px);}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* ── ENDING ── */</span></p>
-<p class="p1"><span class="s1">#scene-end{display:none;position:fixed;inset:0;background:linear-gradient(155deg,#ffe0ec,#fff5f8,#fce8f3);flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:300;overflow:hidden;padding:40px 20px;}</span></p>
-<p class="p1"><span class="s1">#scene-end.show{display:flex;}</span></p>
-<p class="p1"><span class="s1">.end-rain{position:absolute;inset:0;pointer-events:none;overflow:hidden;}</span></p>
-<p class="p1"><span class="s1">.ri{position:absolute;animation:rfall linear infinite;pointer-events:none;}</span></p>
-<p class="p1"><span class="s1">@keyframes rfall{from{transform:translateY(-50px) rotate(0deg);opacity:0;}6%{opacity:1;}90%{opacity:1;}to{transform:translateY(112vh) rotate(380deg);opacity:0;}}</span></p>
-<p class="p1"><span class="s1">.end-wrap{position:relative;z-index:2;animation:fadeUp 1s ease both;max-width:520px;}</span></p>
-<p class="p1"><span class="s1">.end-wrap h2{font-family:var(--dance);font-size:clamp(34px,8vw,62px);color:var(--rose2);margin-bottom:20px;line-height:1.2;}</span></p>
-<p class="p1"><span class="s1">.end-wrap p{font-family:var(--lora);font-style:italic;font-size:17px;color:var(--ink2);margin-bottom:16px;line-height:1.85;}</span></p>
-<p class="p1"><span class="s1">.end-big{font-size:58px;margin-bottom:18px;display:block;animation:hb 1.4s ease-in-out infinite;}</span></p>
-<p class="p1"><span class="s1">@keyframes hb{0%,100%{transform:scale(1)}35%{transform:scale(1.18)}65%{transform:scale(1.1)}}</span></p>
-<p class="p1"><span class="s1">.end-emojis{font-size:36px;line-height:1.9;margin-bottom:14px;}</span></p>
-<p class="p1"><span class="s1">.end-sig{font-family:var(--sf);font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:28px;}</span></p>
-<p class="p1"><span class="s1">&lt;/style&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/head&gt;</span></p>
-<p class="p1"><span class="s1">&lt;body&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- ═══ OPENING ═══ --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="scene-open"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="open-scene"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="rose-wrap" onclick="openLetter()"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;span class="mouth-letter"&gt;💌&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;svg width="190" height="210" viewBox="0 0 190 210" fill="none" xmlns="http://www.w3.org/2000/svg"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M95 200 Q88 160 80 130" stroke="#5a8a40" stroke-width="3.5" stroke-linecap="round" fill="none"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M95 200 Q95 155 95 125" stroke="#6a9a50" stroke-width="3.5" stroke-linecap="round" fill="none"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M95 200 Q103 160 112 130" stroke="#5a8a40" stroke-width="3.5" stroke-linecap="round" fill="none"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M95 200 Q82 155 70 118" stroke="#5a8a40" stroke-width="3" stroke-linecap="round" fill="none"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M95 200 Q108 155 122 118" stroke="#5a8a40" stroke-width="3" stroke-linecap="round" fill="none"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M86 158 Q72 148 74 138 Q84 142 86 158Z" fill="#6aaa4a" opacity="0.85"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M104 155 Q118 144 116 134 Q106 139 104 155Z" fill="#5a9a3a" opacity="0.85"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M80 140 Q66 128 70 118 Q79 124 80 140Z" fill="#6aaa4a" opacity="0.75"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M112 138 Q126 126 122 116 Q113 122 112 138Z" fill="#5a9a3a" opacity="0.75"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M76 182 Q95 174 114 182" stroke="#f9a8c0" stroke-width="5" stroke-linecap="round" fill="none"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M76 182 Q68 175 72 168" stroke="#f9a8c0" stroke-width="4" stroke-linecap="round" fill="none"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;path d="M114 182 Q122 175 118 168" stroke="#f9a8c0" stroke-width="4" stroke-linecap="round" fill="none"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="70" cy="112" r="18" fill="#c0304a" opacity="0.5"/&gt;&lt;ellipse cx="70" cy="107" rx="14" ry="10" fill="#d44060" opacity="0.55"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="122" cy="112" r="18" fill="#c0304a" opacity="0.5"/&gt;&lt;ellipse cx="122" cy="107" rx="14" ry="10" fill="#d44060" opacity="0.55"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="95" cy="100" r="20" fill="#b02840" opacity="0.5"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="70" cy="108" r="18" fill="#e84070"/&gt;&lt;circle cx="70" cy="108" r="13" fill="#d03060"/&gt;&lt;circle cx="66" cy="104" r="9" fill="#c02050"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="70" cy="116" rx="14" ry="7" fill="#f06080" opacity="0.6"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="63" cy="108" rx="9" ry="6" fill="#f06080" opacity="0.5" transform="rotate(-20 63 108)"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="78" cy="108" rx="9" ry="6" fill="#f06080" opacity="0.5" transform="rotate(20 78 108)"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="68" cy="106" r="4" fill="#a01840"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="122" cy="108" r="18" fill="#e84070"/&gt;&lt;circle cx="122" cy="108" r="13" fill="#d03060"/&gt;&lt;circle cx="118" cy="104" r="9" fill="#c02050"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="122" cy="116" rx="14" ry="7" fill="#f06080" opacity="0.6"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="115" cy="108" rx="9" ry="6" fill="#f06080" opacity="0.5" transform="rotate(-20 115 108)"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="130" cy="108" rx="9" ry="6" fill="#f06080" opacity="0.5" transform="rotate(20 130 108)"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="120" cy="106" r="4" fill="#a01840"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="95" cy="95" r="24" fill="#e84070"/&gt;&lt;circle cx="95" cy="95" r="17" fill="#d03060"/&gt;&lt;circle cx="91" cy="90" r="12" fill="#c02050"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="95" cy="106" rx="18" ry="9" fill="#f06080" opacity="0.6"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="84" cy="95" rx="11" ry="7" fill="#f06080" opacity="0.5" transform="rotate(-20 84 95)"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="107" cy="95" rx="11" ry="7" fill="#f06080" opacity="0.5" transform="rotate(20 107 95)"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;ellipse cx="95" cy="85" rx="10" ry="7" fill="#f06080" opacity="0.45"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="92" cy="91" r="5.5" fill="#a01840"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="52" cy="122" r="12" fill="#f08090"/&gt;&lt;circle cx="52" cy="122" r="8" fill="#e06070"/&gt;&lt;circle cx="50" cy="119" r="5" fill="#d05060"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;circle cx="140" cy="122" r="12" fill="#f08090"/&gt;&lt;circle cx="140" cy="122" r="8" fill="#e06070"/&gt;&lt;circle cx="138" cy="119" r="5" fill="#d05060"/&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;text x="30" y="80" font-size="14" opacity="0.5" fill="#f9a8c0"&gt;✨&lt;/text&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;text x="148" y="76" font-size="12" opacity="0.45" fill="#f9a8c0"&gt;✨&lt;/text&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;text x="85" y="58" font-size="10" opacity="0.4" fill="#f9a8c0"&gt;✨&lt;/text&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/svg&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h1 class="open-title"&gt;For Ishita 🌸&lt;/h1&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;button class="open-btn" onclick="openLetter()"&gt;Open the Letter 💌&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- ═══ FLOWER LAYER ═══ --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="flower-layer"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- ═══ SCREEN 1 ═══ --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div class="screen" id="screen1"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="lhero"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="lhero-name"&gt;For Ishita&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="letter-outer"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="letter-paper"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="margin-dots"&gt;&lt;div class="mdot"&gt;&lt;/div&gt;&lt;div class="mdot"&gt;&lt;/div&gt;&lt;div class="mdot"&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="letter-content"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="l-date"&gt;May 2026&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="l-dear"&gt;Dear Ishuu,&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="l-body"&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;I still remember 4th December so clearly. When you told me you liked me, I genuinely couldn't process that it was real. I was so happy and shocked at the same time. Slowly we started talking more — first sharing numbers, then calls. And our first call… God, we were both so shy but that day felt so special to me. I still remember smiling like an idiot after that call ended 😭&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;Then slowly we became comfortable with each other. I still remember that day when you, Vishal, Riya, Shakshi and everyone were going out and you told me to come too. Ayush was there as well. And somewhere while walking I was about to slip and the way you instantly said &lt;em&gt;"sambhal ke"&lt;/em&gt;… I know it sounds like such a small thing, but that moment made me feel so loved.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;And that same day when we went to the fort… remember how we were sitting alone together, both blushing so much and barely even talking properly? And then that first kiss on the cheek… God, I still remember every second of that moment. I don't think I'll ever forget how fast my heartbeat was that day 😭&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;Meeting outside school even for 5 minutes used to make my whole day. Even when Diya was around and we couldn't talk much, just seeing you felt enough.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;And that road near your area connected to the college ground… our first proper hug and kiss there. The location wasn't even special but the moment was unforgettable for me.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;Then when we used to meet at the college ground, our matching t-shirts, those cute photos… I still remember those entire days so clearly. I was genuinely obsessed with you. Like genuinely genuinely 😭&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;When I came to your house, the way we danced together and made that cute video… God, what beautiful days those were. And our pizza date where we were feeding each other so lovingly 🥹 Sometimes I still randomly remember those moments and just stare somewhere thinking &lt;em&gt;"yaar kya din the woh…"&lt;/em&gt;&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;And the Maggie you made 😭 I still remember how professionally and quickly you were making it. It was just a normal Maggie, but God, it felt so special and tasted sooo sooo good 😭 genuinely one of the tastiest things I've eaten in my whole life. Of course, you made it, so &lt;em&gt;mujhe woh tasty toh lagna hi tha&lt;/em&gt; 🥹 Then sitting together on the sofa, feeding each other so lovingly while eating it… such a simple moment, but it became one of my favourite memories because it was with you.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="divider"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;Sometimes now when I look back, it genuinely feels like life became black and white after you left. Back then everything felt colourful. Even small things used to feel exciting because somehow you were part of them.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;I still remember the gift you brought for me — the handwritten letter, the polaroids, and at the end of that beautiful letter you wrote &lt;em&gt;"I love you soo much sweetie"&lt;/em&gt; 🥺 because that's what you used to call me. And I was such an idiot that I didn't even know what polaroids were. I thought the white borders were left to cut, so I literally cut them 😭😭 God, I was so dumb.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;And I still have that letter safely kept inside my wallet. I genuinely still keep it carefully.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;And the movie date in Vapi… we barely even cared about the movie itself, we just wanted to spend time together. Those small moments with you genuinely felt special no matter where we were.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;I used to call you &lt;em&gt;Ishuu&lt;/em&gt; so lovingly 🥹&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;When I left for diploma, whenever I came back home, roaming around with you on your scooty felt so peaceful. Honestly sometimes I used to feel bad that I didn't even have my own scooty then. At home they used to say, &lt;em&gt;"Tu hostel mein rehta hai, scooty leke kya karega?"&lt;/em&gt; so we never got one at that time. But now things at home are actually much better, everything is more stable now, and I finally have one too. Sometimes I think about all those small things and wish I could relive those days once.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;And your birthday… even while staying in hostel I tried so hard to manage your gift through Diya. Maybe the gift wasn't perfect and maybe I wish I could've given you something even better, but whatever savings I had at that time, I used all of it happily for you because making you happy genuinely made me happy.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="divider"&gt;&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;The truth is, I loved you too much. So much that I became insecure, possessive and controlling sometimes. If someone commented on your post, I used to get jealous thinking &lt;em&gt;"she's mine."&lt;/em&gt; Back then I thought that was love, but now I understand love also needs trust, peace and freedom.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;I was genuinely serious about you. In my heart I had already imagined a whole future with you — marriage, success, life, everything. And maybe because I was so scared of losing you, I slowly started ruining things myself with fights, overthinking and restrictions.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;Today when I look back at the way I behaved sometimes, I genuinely feel bad. You deserved softness, reassurance, effort and princess treatment from me… not stress and fights.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;The breakup genuinely broke me. My hands and legs were literally shaking because it felt like my whole future disappeared in one moment. I was ready to fight with anyone for you, even at home if needed, because I loved you that much.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;And honestly… the day you left, it felt like 90% of the happiness in my life disappeared too.&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;Maybe Bhagwan ne mujhe issliye punish kiya because instead of treating a devi like a devi, I let my fear, insecurity and possessiveness overpower the love I had for you. You genuinely deserved softness, trust, peace and care from me… but many times I gave you stress, restrictions and overthinking instead. And honestly, when I look back at everything now, that regret hurts me the most 🥺&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="ctr"&gt;&lt;em&gt;Sorry devi ji 🥹&lt;/em&gt;&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="l-sign"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="l-sign-from"&gt;Always yours,&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="l-sign-name"&gt;Krunal&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="next-btn-wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="next-btn" onclick="goToScreen(2)"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>Continue reading &amp;nbsp;&lt;span class="arrow"&gt;→&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- ═══ SCREEN 2 ═══ --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div class="screen" id="screen2"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="lhero"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="lhero-name"&gt;Mandir mein… 🪔&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="letter-outer"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="letter-paper"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="margin-dots"&gt;&lt;div class="mdot"&gt;&lt;/div&gt;&lt;div class="mdot"&gt;&lt;/div&gt;&lt;div class="mdot"&gt;&lt;/div&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;div class="letter-content"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="l-date"&gt;May 2026&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;p class="l-dear"&gt;Dear Ishuu,&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="l-body"&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;Whenever I go to mandir, I genuinely pray… not to change anything forcefully, but just for &lt;em&gt;peace between us.&lt;/em&gt; For closure, for healing, for whatever is right for both of us 🥺&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;And sometimes when I make a wish in front of God and a flower falls, it just gives a strange feeling… &lt;em&gt;like maybe things are already in God's hands.&lt;/em&gt;&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p&gt;When I went to Bappa, I noticed flowers falling a few times while praying about us. I don't know what it means, and maybe it means nothing… &lt;em&gt;but it still stayed in my heart.&lt;/em&gt;&lt;/p&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;div class="l-sign"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;p class="l-sign-from"&gt;With a quiet prayer,&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">          </span>&lt;div class="l-sign-name"&gt;Krunal&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="next-btn-wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;button class="next-btn" onclick="goToScreen(3)"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">        </span>One last thing… &amp;nbsp;&lt;span class="arrow"&gt;→&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>&lt;/button&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;!-- ═══ ENDING ═══ --&gt;</span></p>
-<p class="p1"><span class="s1">&lt;div id="scene-end"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="end-rain" id="end-rain"&gt;&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;div class="end-wrap"&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;span class="end-big"&gt;💖&lt;/span&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;h2&gt;Always &amp;amp; Forever,&lt;br&gt;Ishuu&lt;/h2&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;I don't know what the future holds for us.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;But I really hope that someday we can at least be in peace with each other… even if it's just as two people who once meant a lot.&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p&gt;&lt;em&gt;Whatever you decide, I will respect it and accept it peacefully.&lt;/em&gt;&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;div class="end-emojis"&gt;🥹 🌸 😭 🌷 💌 🌺 🥹&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>&lt;p class="end-sig"&gt;— Krunal&lt;/p&gt;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>&lt;/div&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/div&gt;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">&lt;script&gt;</span></p>
-<p class="p1"><span class="s1">/* petals on open screen */</span></p>
-<p class="p1"><span class="s1">const openEl=document.getElementById('scene-open');</span></p>
-<p class="p1"><span class="s1">const ep=['🌸','🌷','🌺','✿'];</span></p>
-<p class="p1"><span class="s1">for(let i=0;i&lt;20;i++){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const s=document.createElement('span');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>s.className='fp';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>s.textContent=ep[i%ep.length];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>s.style.cssText=`left:${Math.random()*96}%;top:-20px;font-size:${12+Math.random()*14}px;animation-duration:${5+Math.random()*7}s;animation-delay:${Math.random()*6}s;`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>openEl.appendChild(s);</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* open letter */</span></p>
-<p class="p1"><span class="s1">let opened=false;</span></p>
-<p class="p1"><span class="s1">function openLetter(){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(opened)return;opened=true;</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const m=document.querySelector('.mouth-letter');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>m.style.transform='translateY(-80px) scale(1.6) rotate(-5deg)';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>m.style.opacity='0';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>setTimeout(()=&gt;{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>document.getElementById('scene-open').classList.add('gone');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>setTimeout(()=&gt;{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>document.getElementById('scene-open').style.display='none';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>goToScreen(1);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>startFlowers();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>},800);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>},500);</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* screen navigation */</span></p>
-<p class="p1"><span class="s1">function goToScreen(n){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.screen').forEach(s=&gt;s.classList.remove('active'));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>if(n&lt;=2){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const sc = document.getElementById('screen'+n);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>if(sc) sc.classList.add('active');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>window.scrollTo({top:0,behavior:'smooth'});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>} else {</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>showEnding();</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* side flowers */</span></p>
-<p class="p1"><span class="s1">const flLayer=document.getElementById('flower-layer');</span></p>
-<p class="p1"><span class="s1">function startFlowers(){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const fl=['🌸','🌷','🌺'];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>setInterval(()=&gt;{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const p=document.createElement('span');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const left=Math.random()&gt;0.5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const x=left?Math.random()*10:90+Math.random()*9;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>const dur=5+Math.random()*5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>p.style.cssText=`position:fixed;left:${x}%;top:-20px;font-size:${11+Math.random()*10}px;pointer-events:none;animation:sidefall ${dur}s linear forwards;opacity:0;`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>p.textContent=fl[Math.floor(Math.random()*fl.length)];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>flLayer.appendChild(p);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>setTimeout(()=&gt;p.remove(),(dur*1000)+300);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>},600);</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p2"><span class="s1"></span><br></p>
-<p class="p1"><span class="s1">/* ending */</span></p>
-<p class="p1"><span class="s1">function showEnding(){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.querySelectorAll('.screen').forEach(s=&gt;s.classList.remove('active'));</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>document.getElementById('scene-end').classList.add('show');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>window.scrollTo({top:0,behavior:'smooth'});</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const rain=document.getElementById('end-rain');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>const items=['🥹','🌸','😭','🌷','💌','🌺','🌹','😭'];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>for(let i=0;i&lt;55;i++){</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>setTimeout(()=&gt;{</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const e=document.createElement('span');</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>const dur=4+Math.random()*5;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>e.className='ri';</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>e.style.cssText=`left:${Math.random()*100}%;font-size:${16+Math.random()*28}px;animation-duration:${dur}s;animation-delay:${Math.random()*3}s;`;</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>e.textContent=items[Math.floor(Math.random()*items.length)];</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">      </span>rain.appendChild(e);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">    </span>},i*55);</span></p>
-<p class="p1"><span class="s1"><span class="Apple-converted-space">  </span>}</span></p>
-<p class="p1"><span class="s1">}</span></p>
-<p class="p1"><span class="s1">&lt;/script&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/body&gt;</span></p>
-<p class="p1"><span class="s1">&lt;/html&gt;</span></p>
+
+<!-- ═══ OPENING ═══ -->
+<div id="scene-open">
+  <div class="open-scene">
+    <div class="rose-wrap" onclick="openLetter()">
+      <span class="mouth-letter">💌</span>
+      <svg width="190" height="210" viewBox="0 0 190 210" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M95 200 Q88 160 80 130" stroke="#5a8a40" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M95 200 Q95 155 95 125" stroke="#6a9a50" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M95 200 Q103 160 112 130" stroke="#5a8a40" stroke-width="3.5" stroke-linecap="round" fill="none"/>
+        <path d="M95 200 Q82 155 70 118" stroke="#5a8a40" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M95 200 Q108 155 122 118" stroke="#5a8a40" stroke-width="3" stroke-linecap="round" fill="none"/>
+        <path d="M86 158 Q72 148 74 138 Q84 142 86 158Z" fill="#6aaa4a" opacity="0.85"/>
+        <path d="M104 155 Q118 144 116 134 Q106 139 104 155Z" fill="#5a9a3a" opacity="0.85"/>
+        <path d="M80 140 Q66 128 70 118 Q79 124 80 140Z" fill="#6aaa4a" opacity="0.75"/>
+        <path d="M112 138 Q126 126 122 116 Q113 122 112 138Z" fill="#5a9a3a" opacity="0.75"/>
+        <path d="M76 182 Q95 174 114 182" stroke="#f9a8c0" stroke-width="5" stroke-linecap="round" fill="none"/>
+        <path d="M76 182 Q68 175 72 168" stroke="#f9a8c0" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <path d="M114 182 Q122 175 118 168" stroke="#f9a8c0" stroke-width="4" stroke-linecap="round" fill="none"/>
+        <circle cx="70" cy="112" r="18" fill="#c0304a" opacity="0.5"/><ellipse cx="70" cy="107" rx="14" ry="10" fill="#d44060" opacity="0.55"/>
+        <circle cx="122" cy="112" r="18" fill="#c0304a" opacity="0.5"/><ellipse cx="122" cy="107" rx="14" ry="10" fill="#d44060" opacity="0.55"/>
+        <circle cx="95" cy="100" r="20" fill="#b02840" opacity="0.5"/>
+        <circle cx="70" cy="108" r="18" fill="#e84070"/><circle cx="70" cy="108" r="13" fill="#d03060"/><circle cx="66" cy="104" r="9" fill="#c02050"/>
+        <ellipse cx="70" cy="116" rx="14" ry="7" fill="#f06080" opacity="0.6"/>
+        <ellipse cx="63" cy="108" rx="9" ry="6" fill="#f06080" opacity="0.5" transform="rotate(-20 63 108)"/>
+        <ellipse cx="78" cy="108" rx="9" ry="6" fill="#f06080" opacity="0.5" transform="rotate(20 78 108)"/>
+        <circle cx="68" cy="106" r="4" fill="#a01840"/>
+        <circle cx="122" cy="108" r="18" fill="#e84070"/><circle cx="122" cy="108" r="13" fill="#d03060"/><circle cx="118" cy="104" r="9" fill="#c02050"/>
+        <ellipse cx="122" cy="116" rx="14" ry="7" fill="#f06080" opacity="0.6"/>
+        <ellipse cx="115" cy="108" rx="9" ry="6" fill="#f06080" opacity="0.5" transform="rotate(-20 115 108)"/>
+        <ellipse cx="130" cy="108" rx="9" ry="6" fill="#f06080" opacity="0.5" transform="rotate(20 130 108)"/>
+        <circle cx="120" cy="106" r="4" fill="#a01840"/>
+        <circle cx="95" cy="95" r="24" fill="#e84070"/><circle cx="95" cy="95" r="17" fill="#d03060"/><circle cx="91" cy="90" r="12" fill="#c02050"/>
+        <ellipse cx="95" cy="106" rx="18" ry="9" fill="#f06080" opacity="0.6"/>
+        <ellipse cx="84" cy="95" rx="11" ry="7" fill="#f06080" opacity="0.5" transform="rotate(-20 84 95)"/>
+        <ellipse cx="107" cy="95" rx="11" ry="7" fill="#f06080" opacity="0.5" transform="rotate(20 107 95)"/>
+        <ellipse cx="95" cy="85" rx="10" ry="7" fill="#f06080" opacity="0.45"/>
+        <circle cx="92" cy="91" r="5.5" fill="#a01840"/>
+        <circle cx="52" cy="122" r="12" fill="#f08090"/><circle cx="52" cy="122" r="8" fill="#e06070"/><circle cx="50" cy="119" r="5" fill="#d05060"/>
+        <circle cx="140" cy="122" r="12" fill="#f08090"/><circle cx="140" cy="122" r="8" fill="#e06070"/><circle cx="138" cy="119" r="5" fill="#d05060"/>
+        <text x="30" y="80" font-size="14" opacity="0.5" fill="#f9a8c0">✨</text>
+        <text x="148" y="76" font-size="12" opacity="0.45" fill="#f9a8c0">✨</text>
+        <text x="85" y="58" font-size="10" opacity="0.4" fill="#f9a8c0">✨</text>
+      </svg>
+    </div>
+    <h1 class="open-title">For Ishita 🌸</h1>
+    <button class="open-btn" onclick="openLetter()">Open the Letter 💌</button>
+  </div>
+</div>
+
+<!-- ═══ FLOWER LAYER ═══ -->
+<div id="flower-layer"></div>
+
+<!-- ═══ SCREEN 1 ═══ -->
+<div class="screen" id="screen1">
+  <div class="lhero">
+    <div class="lhero-name">For Ishita</div>
+  </div>
+  <div class="letter-outer">
+    <div class="letter-paper">
+      <div class="margin-dots"><div class="mdot"></div><div class="mdot"></div><div class="mdot"></div></div>
+      <div class="letter-content">
+        <p class="l-date">May 2026</p>
+        <p class="l-dear">Dear Ishuu,</p>
+        <div class="l-body">
+
+          <p>I still remember 4th December so clearly. When you told me you liked me, I genuinely couldn't process that it was real. I was so happy and shocked at the same time. Slowly we started talking more — first sharing numbers, then calls. And our first call… God, we were both so shy but that day felt so special to me. I still remember smiling like an idiot after that call ended 😭</p>
+
+          <p>Then slowly we became comfortable with each other. I still remember that day when you, Vishal, Riya, Shakshi and everyone were going out and you told me to come too. Ayush was there as well. And somewhere while walking I was about to slip and the way you instantly said <em>"sambhal ke"</em>… I know it sounds like such a small thing, but that moment made me feel so loved.</p>
+
+          <p>And that same day when we went to the fort… remember how we were sitting alone together, both blushing so much and barely even talking properly? And then that first kiss on the cheek… God, I still remember every second of that moment. I don't think I'll ever forget how fast my heartbeat was that day 😭</p>
+
+          <p>Meeting outside school even for 5 minutes used to make my whole day. Even when Diya was around and we couldn't talk much, just seeing you felt enough.</p>
+
+          <p>And that road near your area connected to the college ground… our first proper hug and kiss there. The location wasn't even special but the moment was unforgettable for me.</p>
+
+          <p>Then when we used to meet at the college ground, our matching t-shirts, those cute photos… I still remember those entire days so clearly. I was genuinely obsessed with you. Like genuinely genuinely 😭</p>
+
+          <p>When I came to your house, the way we danced together and made that cute video… God, what beautiful days those were. And our pizza date where we were feeding each other so lovingly 🥹 Sometimes I still randomly remember those moments and just stare somewhere thinking <em>"yaar kya din the woh…"</em></p>
+
+          <p>And the Maggie you made 😭 I still remember how professionally and quickly you were making it. It was just a normal Maggie, but God, it felt so special and tasted sooo sooo good 😭 genuinely one of the tastiest things I've eaten in my whole life. Of course, you made it, so <em>mujhe woh tasty toh lagna hi tha</em> 🥹 Then sitting together on the sofa, feeding each other so lovingly while eating it… such a simple moment, but it became one of my favourite memories because it was with you.</p>
+
+          <div class="divider"></div>
+
+          <p>Sometimes now when I look back, it genuinely feels like life became black and white after you left. Back then everything felt colourful. Even small things used to feel exciting because somehow you were part of them.</p>
+
+          <p>I still remember the gift you brought for me — the handwritten letter, the polaroids, and at the end of that beautiful letter you wrote <em>"I love you soo much sweetie"</em> 🥺 because that's what you used to call me. And I was such an idiot that I didn't even know what polaroids were. I thought the white borders were left to cut, so I literally cut them 😭😭 God, I was so dumb.</p>
+
+          <p>And I still have that letter safely kept inside my wallet. I genuinely still keep it carefully.</p>
+
+          <p>And the movie date in Vapi… we barely even cared about the movie itself, we just wanted to spend time together. Those small moments with you genuinely felt special no matter where we were.</p>
+
+          <p>I used to call you <em>Ishuu</em> so lovingly 🥹</p>
+
+          <p>When I left for diploma, whenever I came back home, roaming around with you on your scooty felt so peaceful. Honestly sometimes I used to feel bad that I didn't even have my own scooty then. At home they used to say, <em>"Tu hostel mein rehta hai, scooty leke kya karega?"</em> so we never got one at that time. But now things at home are actually much better, everything is more stable now, and I finally have one too. Sometimes I think about all those small things and wish I could relive those days once.</p>
+
+          <p>And your birthday… even while staying in hostel I tried so hard to manage your gift through Diya. Maybe the gift wasn't perfect and maybe I wish I could've given you something even better, but whatever savings I had at that time, I used all of it happily for you because making you happy genuinely made me happy.</p>
+
+          <div class="divider"></div>
+
+          <p>The truth is, I loved you too much. So much that I became insecure, possessive and controlling sometimes. If someone commented on your post, I used to get jealous thinking <em>"she's mine."</em> Back then I thought that was love, but now I understand love also needs trust, peace and freedom.</p>
+
+          <p>I was genuinely serious about you. In my heart I had already imagined a whole future with you — marriage, success, life, everything. And maybe because I was so scared of losing you, I slowly started ruining things myself with fights, overthinking and restrictions.</p>
+
+          <p>Today when I look back at the way I behaved sometimes, I genuinely feel bad. You deserved softness, reassurance, effort and princess treatment from me… not stress and fights.</p>
+
+          <p>The breakup genuinely broke me. My hands and legs were literally shaking because it felt like my whole future disappeared in one moment. I was ready to fight with anyone for you, even at home if needed, because I loved you that much.</p>
+
+          <p>And honestly… the day you left, it felt like 90% of the happiness in my life disappeared too.</p>
+
+          <p>Maybe Bhagwan ne mujhe issliye punish kiya because instead of treating a devi like a devi, I let my fear, insecurity and possessiveness overpower the love I had for you. You genuinely deserved softness, trust, peace and care from me… but many times I gave you stress, restrictions and overthinking instead. And honestly, when I look back at everything now, that regret hurts me the most 🥺</p>
+
+          <p class="ctr"><em>Sorry devi ji 🥹</em></p>
+
+        </div>
+        <div class="l-sign">
+          <p class="l-sign-from">Always yours,</p>
+          <div class="l-sign-name">Krunal</div>
+        </div>
+      </div>
+    </div>
+    <div class="next-btn-wrap">
+      <button class="next-btn" onclick="goToScreen(2)">
+        Continue reading &nbsp;<span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SCREEN 2 ═══ -->
+<div class="screen" id="screen2">
+  <div class="lhero">
+    <div class="lhero-name">Mandir mein… 🪔</div>
+  </div>
+  <div class="letter-outer">
+    <div class="letter-paper">
+      <div class="margin-dots"><div class="mdot"></div><div class="mdot"></div><div class="mdot"></div></div>
+      <div class="letter-content">
+        <p class="l-date">May 2026</p>
+        <p class="l-dear">Dear Ishuu,</p>
+        <div class="l-body">
+
+          <p>Whenever I go to mandir, I genuinely pray… not to change anything forcefully, but just for <em>peace between us.</em> For closure, for healing, for whatever is right for both of us 🥺</p>
+
+          <p>And sometimes when I make a wish in front of God and a flower falls, it just gives a strange feeling… <em>like maybe things are already in God's hands.</em></p>
+
+          <p>When I went to Bappa, I noticed flowers falling a few times while praying about us. I don't know what it means, and maybe it means nothing… <em>but it still stayed in my heart.</em></p>
+
+        </div>
+        <div class="l-sign">
+          <p class="l-sign-from">With a quiet prayer,</p>
+          <div class="l-sign-name">Krunal</div>
+        </div>
+      </div>
+    </div>
+    <div class="next-btn-wrap">
+      <button class="next-btn" onclick="goToScreen(3)">
+        One last thing… &nbsp;<span class="arrow">→</span>
+      </button>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ ENDING ═══ -->
+<div id="scene-end">
+  <div class="end-rain" id="end-rain"></div>
+  <div class="end-wrap">
+    <span class="end-big">💖</span>
+    <h2>Always &amp; Forever,<br>Ishuu</h2>
+    <p>I don't know what the future holds for us.</p>
+    <p>But I really hope that someday we can at least be in peace with each other… even if it's just as two people who once meant a lot.</p>
+    <p><em>Whatever you decide, I will respect it and accept it peacefully.</em></p>
+    <div class="end-emojis">🥹 🌸 😭 🌷 💌 🌺 🥹</div>
+    <p class="end-sig">— Krunal</p>
+  </div>
+</div>
+
+<script>
+/* petals on open screen */
+const openEl=document.getElementById('scene-open');
+const ep=['🌸','🌷','🌺','✿'];
+for(let i=0;i<20;i++){
+  const s=document.createElement('span');
+  s.className='fp';
+  s.textContent=ep[i%ep.length];
+  s.style.cssText=`left:${Math.random()*96}%;top:-20px;font-size:${12+Math.random()*14}px;animation-duration:${5+Math.random()*7}s;animation-delay:${Math.random()*6}s;`;
+  openEl.appendChild(s);
+}
+
+/* open letter */
+let opened=false;
+function openLetter(){
+  if(opened)return;opened=true;
+
+  const m=document.querySelector('.mouth-letter');
+  m.style.transform='translateY(-80px) scale(1.6) rotate(-5deg)';
+  m.style.opacity='0';
+  setTimeout(()=>{
+    document.getElementById('scene-open').classList.add('gone');
+    setTimeout(()=>{
+      document.getElementById('scene-open').style.display='none';
+      goToScreen(1);
+      startFlowers();
+    },800);
+  },500);
+}
+
+/* screen navigation */
+function goToScreen(n){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  if(n<=2){
+    const sc = document.getElementById('screen'+n);
+    if(sc) sc.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+  } else {
+    showEnding();
+  }
+}
+
+/* side flowers */
+const flLayer=document.getElementById('flower-layer');
+function startFlowers(){
+  const fl=['🌸','🌷','🌺'];
+  setInterval(()=>{
+    const p=document.createElement('span');
+    const left=Math.random()>0.5;
+    const x=left?Math.random()*10:90+Math.random()*9;
+    const dur=5+Math.random()*5;
+    p.style.cssText=`position:fixed;left:${x}%;top:-20px;font-size:${11+Math.random()*10}px;pointer-events:none;animation:sidefall ${dur}s linear forwards;opacity:0;`;
+    p.textContent=fl[Math.floor(Math.random()*fl.length)];
+    flLayer.appendChild(p);
+    setTimeout(()=>p.remove(),(dur*1000)+300);
+  },600);
+}
+
+/* ending */
+function showEnding(){
+  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.getElementById('scene-end').classList.add('show');
+  window.scrollTo({top:0,behavior:'smooth'});
+  const rain=document.getElementById('end-rain');
+  const items=['🥹','🌸','😭','🌷','💌','🌺','🌹','😭'];
+  for(let i=0;i<55;i++){
+    setTimeout(()=>{
+      const e=document.createElement('span');
+      const dur=4+Math.random()*5;
+      e.className='ri';
+      e.style.cssText=`left:${Math.random()*100}%;font-size:${16+Math.random()*28}px;animation-duration:${dur}s;animation-delay:${Math.random()*3}s;`;
+      e.textContent=items[Math.floor(Math.random()*items.length)];
+      rain.appendChild(e);
+    },i*55);
+  }
+}
+</script>
 </body>
 </html>
