@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>For Ishita 💌</title>
+<title>For Sneha 💌</title>
 <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Lora:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
 <style>
 :root {
@@ -73,7 +73,6 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
 .l-body p{font-family:var(--lora);font-size:clamp(15px,2.2vw,17px);font-weight:400;line-height:2;color:var(--ink2);margin-bottom:26px;letter-spacing:0.02px;}
 .l-body p:last-child{margin-bottom:0;}
 .l-body em{color:var(--rose2);font-style:italic;}
-.l-body .ctr{text-align:center;font-size:19px !important;color:var(--rose2) !important;}
 .divider{width:56px;height:1px;background:linear-gradient(90deg,transparent,#f9d0de,transparent);margin:28px auto;}
 .l-sign{margin-top:40px;padding-top:28px;border-top:0.5px dashed rgba(212,84,122,0.3);}
 .l-sign-from{font-family:var(--lora);font-style:italic;font-size:15px;color:var(--ink3);margin-bottom:4px;}
@@ -103,34 +102,20 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
 #scene-end{display:none;position:fixed;inset:0;background:linear-gradient(155deg,#ffe0ec,#fff5f8,#fce8f3);flex-direction:column;align-items:center;justify-content:center;text-align:center;z-index:300;overflow:hidden;padding:40px 20px;}
 #scene-end.show{display:flex;}
 .end-rain{position:absolute;inset:0;pointer-events:none;overflow:hidden;}
-.ri{position:absolute;animation:rfall linear infinite;pointer-events:none;opacity:0.5; /* Made emojis lighter */}
-@keyframes rfall{from{transform:translateY(-50px) rotate(0deg);opacity:0;}6%{opacity:0.5;} /* Peaked opacity lower */90%{opacity:0.5;}to{transform:translateY(112vh) rotate(380deg);opacity:0;}}
-.end-wrap{position:relative;z-index:10; /* Brought text to front */animation:fadeUp 1s ease both;max-width:520px;}
+.ri{position:absolute;animation:rfall linear infinite;pointer-events:none;opacity:0.5;}
+@keyframes rfall{from{transform:translateY(-50px) rotate(0deg);opacity:0;}6%{opacity:0.5;}90%{opacity:0.5;}to{transform:translateY(112vh) rotate(380deg);opacity:0;}}
+.end-wrap{position:relative;z-index:10;animation:fadeUp 1s ease both;max-width:520px;}
 .end-wrap h2{font-family:var(--dance);font-size:clamp(34px,8vw,62px);color:var(--rose2);margin-bottom:20px;line-height:1.2;}
 .end-wrap p{font-family:var(--lora);font-style:italic;font-size:17px;color:var(--ink2);margin-bottom:16px;line-height:1.85;}
 .end-big{font-size:58px;margin-bottom:18px;display:block;animation:hb 1.4s ease-in-out infinite;}
 @keyframes hb{0%,100%{transform:scale(1)}35%{transform:scale(1.18)}65%{transform:scale(1.1)}}
 .end-emojis{font-size:36px;line-height:1.9;margin-bottom:14px;}
 .end-sig{font-family:var(--sf);font-size:14px;color:var(--ink3);font-weight:300;margin-bottom:28px;}
-
-/* Custom Music Button with Pause Support */
-#play-music-btn {
-    background: #9c6878;
-    margin: 20px 0;
-    box-shadow: 0 4px 15px rgba(156, 104, 120, 0.3);
-    transition: background 0.3s ease;
-}
-#play-music-btn.playing {
-    background: var(--ink2); /* Darker when playing */
-}
 </style>
 </head>
 <body>
 
-<audio id="letter-song" preload="auto">
-  <source src="https://raw.githubusercontent.com/Krunal1284/hope/main/song.mp3" type="audio/mpeg">
-</audio>
-
+<!-- OPENING -->
 <div id="scene-open">
   <div class="open-scene">
     <div class="rose-wrap" onclick="openLetter()">
@@ -174,237 +159,122 @@ body{font-family:var(--sf);background:var(--bg);overflow-x:hidden;-webkit-font-s
         <text x="85" y="58" font-size="10" opacity="0.4" fill="#f9a8c0">✨</text>
       </svg>
     </div>
-    <h1 class="open-title">For Ishita 🌸</h1>
+    <h1 class="open-title">For Sneha 🌸</h1>
     <button class="open-btn" onclick="openLetter()">Open the Letter 💌</button>
   </div>
 </div>
 
 <div id="flower-layer"></div>
 
+<!-- LETTER SCREEN -->
 <div class="screen" id="screen1">
   <div class="lhero">
-    <div class="lhero-name">For Ishita</div>
+    <div class="lhero-name">For Sneha</div>
   </div>
   <div class="letter-outer">
     <div class="letter-paper">
       <div class="margin-dots"><div class="mdot"></div><div class="mdot"></div><div class="mdot"></div></div>
       <div class="letter-content">
         <p class="l-date">May 2026</p>
-        <p class="l-dear">Dear Ishuu,</p>
+        <p class="l-dear">Hey Sneha,</p>
         <div class="l-body">
-          <p>I still remember 4th December so clearly. When you told me you liked me, I genuinely couldn't process that it was real. I was so happy and shocked at the same time. Slowly we started talking more — first sharing numbers, then calls. And our first call… God, we were both so shy but that day felt so special to me. I still remember smiling like an idiot after that call ended 😭</p>
-          <p>Then slowly we became comfortable with each other. I still remember that day when you, Vishal, Riya, Shakshi and everyone were going out and you told me to come too. Ayush was there as well. And somewhere while walking I was about to slip and the way you instantly said <em>"sambhal ke"</em>… I know it sounds like such a small thing, but that moment made me feel so loved.</p>
-          <p>And that same day when we went to the fort… remember how we were sitting alone together, both blushing so much and barely even talking properly? And then that first kiss on the cheek… God, I still remember every second of that moment. I don't think I'll ever forget how fast my heartbeat was that day 😭</p>
-          <p>Meeting outside school even for 5 minutes used to make my whole day. Even when Diya was around and we couldn't talk much, just seeing you felt enough.</p>
-          <p>And that road near your area connected to the college ground… our first proper hug and kiss there. The location wasn't even special but the moment was unforgettable for me.</p>
-          <p>Then when we used to meet at the college ground, our matching t-shirts, those cute photos… I still remember those entire days so clearly. I was genuinely obsessed with you. Like genuinely genuinely 😭</p>
-          <p>When I came to your house, the way we danced together and made that cute video… God, what beautiful days those were. And our pizza date where we were feeding each other so lovingly 🥹 Sometimes I still randomly remember those moments and just stare somewhere thinking <em>"yaar kya din the woh…"</em></p>
-          <p>And the Maggie you made 😭 I still remember how professionally and quickly you were making it. It was just a normal Maggie, but God, it felt so special and tasted sooo sooo good 😭 genuinely one of the tastiest things I've eaten in my whole life. Of course, you made it, so <em>mujhe woh tasty toh lagna hi tha</em> 🥹 Then sitting together on the sofa, feeding each other so lovingly while eating it… such a simple moment, but it became one of my favourite memories because it was with you.</p>
+          <p>I felt like mujhe tujhe properly explain karna chahiye because jo bhi hua tha wo kaafi suddenly end ho gaya tha.</p>
+          <p>Jab mai university gaya na, mere kuch old uni wale friends already waha the, aur unhi ke through meri Divya se baat hui because she was also from hostel and same class ki thi. Dheere dheere wo hamare group ke saath rehne lagi and we became really close friends.</p>
+          <p>Ek din she checked my phone and usme humare chats dekhe. Tab tak hamare beech kuch serious bhi nahi tha, but she felt insecure and got upset. Maine usse explain bhi kiya tha ki tu meri bestfriend hai, but uske baad things became awkward. Fir dheere dheere mai aur wo aur close hote gaye and eventually relationship mai aa gaye.</p>
+          <p>Isliye jab tera WhatsApp pe msg aaya tha na, maine as a loyal boyfriend usse sab dikhaya tha. But usne usi time tujhe block kar diya aur meri side se bhi reply kar diya without really letting me explain things properly.</p>
+          <p>Honestly uss time mai khud bhi kaafi confused tha and I was stuck in a really unhealthy relationship dynamic. Mai bas fights avoid karne ke liye cheeze chalne de raha tha instead of handling them maturely.</p>
+          <p>Ab breakup ko 1 month ho gaya hai, and after thinking about everything mujhe laga ki tujhe proper explanation deserve karti hai because I never intentionally wanted to hurt, ignore or disrespect you.</p>
           <div class="divider"></div>
-          <p>Sometimes now when I look back, it genuinely feels like life became black and white after you left. Back then everything felt colourful. Even small things used to feel exciting because somehow you were part of them.</p>
-          <p>I still remember the gift you brought for me — the handwritten letter, the polaroids, and at the end of that beautiful letter you wrote <em>"I love you soo much sweetie"</em> 🥺 because that's what you used to call me. And I was such an idiot that I didn't even know what polaroids were. I thought the white borders were left to cut, so I literally cut them 😭😭 God, I was so dumb.</p>
-          <p>And I still have that letter safely kept inside my wallet. I genuinely still keep it carefully.</p>
-          <p>And the movie date in Vapi… we barely even cared about the movie itself, we just wanted to spend time together. Those small moments with you genuinely felt special no matter where we were.</p>
-          <p>I used to call you <em>Ishuu</em> so lovingly 🥹</p>
-          <p>When I left for diploma, whenever I came back home, roaming around with you on your scooty felt so peaceful. Honestly sometimes I used to feel bad that I didn't even have my own scooty then. At home they used to say, <em>"Tu hostel mein rehta hai, scooty leke kya karega?"</em> so we never got one at that time. But now things at home are actually much better, everything is more stable now, and I finally have one too. Sometimes I think about all those small things and wish I could relive those days once.</p>
-          <p>And your birthday… even while staying in hostel I tried so hard to manage your gift through Diya. Maybe the gift wasn't perfect and maybe I wish I could've given you something even better, but whatever savings I had at that time, I used all of it happily for you because making you happy genuinely made me happy.</p>
-          <div class="divider"></div>
-          <p>The truth is, I loved you too much. So much that I became insecure, possessive and controlling sometimes. If someone commented on your post, I used to get jealous thinking <em>"she's mine."</em> Back then I thought that was love, but now I understand love also needs trust, peace and freedom.</p>
-          <p>I was genuinely serious about you. In my heart I had already imagined a whole future with you — marriage, success, life, everything. And maybe because I was so scared of losing you, I slowly started ruining things myself with fights, overthinking and restrictions.</p>
-          <p>Today when I look back at the way I behaved sometimes, I genuinely feel bad. You deserved softness, reassurance, effort and princess treatment from me… not stress and fights.</p>
-          <p>The breakup genuinely broke me. My hands and legs were literally shaking because it felt like my whole future disappeared in one moment. I was ready to fight with anyone for you, even at home if needed, because I loved you that much.</p>
-          <p>And honestly… the day you left, it felt like 90% of the happiness in my life disappeared too.</p>
-          <p>Maybe Bhagwan ne mujhe issliye punish kiya because instead of treating a devi like a devi, I let my fear, insecurity and possessiveness overpower the love I had for you. You genuinely deserved softness, trust, peace and care from me… but many times I gave you stress, restrictions and overthinking instead. And honestly, when I look back at everything now, that regret hurts me the most 🥺</p>
-          <p class="ctr"><em>Sorry devi ji 🥹</em></p>
+          <p>So genuinely… I'm sorry Sneha 🥺</p>
         </div>
         <div class="l-sign">
-          <p class="l-sign-from">Always yours,</p>
-          <div class="l-sign-name">Krunal</div>
+          <p class="l-sign-from">Genuinely yours,</p>
+          <div class="l-sign-name">Sorry 🥺</div>
         </div>
       </div>
     </div>
     <div class="next-btn-wrap">
-      <button class="next-btn" onclick="goToScreen(2)">
-        Continue reading &nbsp;<span class="arrow">→</span>
-      </button>
-    </div>
-  </div>
-</div>
-
-<div class="screen" id="screen2">
-  <div class="lhero">
-    <div class="lhero-name">Mandir mein… 🪔</div>
-  </div>
-  <div class="letter-outer">
-    <div class="letter-paper">
-      <div class="margin-dots"><div class="mdot"></div><div class="mdot"></div><div class="mdot"></div></div>
-      <div class="letter-content">
-        <p class="l-date">May 2026</p>
-        <p class="l-dear">Dear Ishuu,</p>
-        <div class="l-body">
-          <p>Whenever I go to mandir, I genuinely pray… not to change anything forcefully, but just for <em>peace between us.</em> For closure, for healing, for whatever is right for both of us 🥺</p>
-          <p>And sometimes when I make a wish in front of God and a flower falls, it just gives a strange feeling… <em>like maybe things are already in God's hands.</em></p>
-          <p>When I went to Bappa, I noticed flowers falling a few times while praying about us. I don't know what it means, and maybe it means nothing… <em>but it still stayed in my heart.</em></p>
-        </div>
-        <div class="l-sign">
-          <p class="l-sign-from">With a quiet prayer,</p>
-          <div class="l-sign-name">Krunal</div>
-        </div>
-      </div>
-    </div>
-    <div class="next-btn-wrap">
-      <button class="next-btn" onclick="goToScreen(3)">
+      <button class="next-btn" onclick="showEnding()">
         One last thing… &nbsp;<span class="arrow">→</span>
       </button>
     </div>
   </div>
 </div>
 
+<!-- ENDING SCREEN -->
 <div id="scene-end">
   <div class="end-rain" id="end-rain"></div>
   <div class="end-wrap">
-    <span class="end-big">💖</span>
-    <h2>Always &amp; Forever,<br>Ishuu</h2>
-    <p>I don't know what the future holds for us.</p>
-    <p>But I really hope that someday we can at least be in peace with each other…</p>
-    
-    <button class="next-btn" id="play-music-btn" onclick="playSpecialSong()">
-       Play a song for you 🎵
-    </button>
-
-    <p style="margin-top:20px;"><em>Whatever you decide, I will respect it and accept it peacefully.</em></p>
-    <div class="end-emojis">🥹 🌸 😭 🌷 💌 🌺 🥹</div>
-    <p class="end-sig">— Krunal</p>
+    <span class="end-big">🥺</span>
+    <h2>Sorry, Sneha</h2>
+    <p>I never intentionally wanted to hurt, ignore or disrespect you.</p>
+    <p>I genuinely mean it — from the bottom of my heart.</p>
+    <div class="end-emojis">🥹 🌸 💌 🌷 🥺 🌸 🥹</div>
+    <p class="end-sig">— Genuinely sorry 🥺</p>
   </div>
 </div>
 
 <script>
 /* ── BACKGROUND PETALS ── */
-const openEl=document.getElementById('scene-open');
-const ep=['🌸','🌷','🌺','✿'];
-for(let i=0;i<20;i++){
-  const s=document.createElement('span');
-  s.className='fp';
-  s.textContent=ep[i%ep.length];
-  s.style.cssText=`left:${Math.random()*96}%;top:-20px;font-size:${12+Math.random()*14}px;animation-duration:${5+Math.random()*7}s;animation-delay:${Math.random()*6}s;`;
+const openEl = document.getElementById('scene-open');
+const ep = ['🌸','🌷','🌺','✿'];
+for(let i = 0; i < 20; i++){
+  const s = document.createElement('span');
+  s.className = 'fp';
+  s.textContent = ep[i % ep.length];
+  s.style.cssText = `left:${Math.random()*96}%;top:-20px;font-size:${12+Math.random()*14}px;animation-duration:${5+Math.random()*7}s;animation-delay:${Math.random()*6}s;`;
   openEl.appendChild(s);
 }
 
 /* ── OPENING LOGIC ── */
-let opened=false;
+let opened = false;
 function openLetter(){
-  if(opened)return;opened=true;
-  const m=document.querySelector('.mouth-letter');
-  m.style.transform='translateY(-80px) scale(1.6) rotate(-5deg)';
-  m.style.opacity='0';
-  setTimeout(()=>{
+  if(opened) return; opened = true;
+  const m = document.querySelector('.mouth-letter');
+  m.style.transform = 'translateY(-80px) scale(1.6) rotate(-5deg)';
+  m.style.opacity = '0';
+  setTimeout(() => {
     document.getElementById('scene-open').classList.add('gone');
-    setTimeout(()=>{
-      document.getElementById('scene-open').style.display='none';
-      goToScreen(1);
+    setTimeout(() => {
+      document.getElementById('scene-open').style.display = 'none';
+      document.getElementById('screen1').classList.add('active');
       startFlowers();
-    },800);
-  },500);
-}
-
-/* ── NAVIGATION ── */
-function goToScreen(n){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
-  if(n<=2){
-    const sc = document.getElementById('screen'+n);
-    if(sc) sc.classList.add('active');
-    window.scrollTo({top:0,behavior:'smooth'});
-  } else {
-    showEnding();
-  }
+    }, 800);
+  }, 500);
 }
 
 /* ── SIDE FLOWERS ── */
-const flLayer=document.getElementById('flower-layer');
+const flLayer = document.getElementById('flower-layer');
 function startFlowers(){
-  const fl=['🌸','🌷','🌺'];
-  setInterval(()=>{
-    const p=document.createElement('span');
-    const left=Math.random()>0.5;
-    const x=left?Math.random()*10:90+Math.random()*9;
-    const dur=5+Math.random()*5;
-    p.style.cssText=`position:fixed;left:${x}%;top:-20px;font-size:${11+Math.random()*10}px;pointer-events:none;animation:sidefall ${dur}s linear forwards;opacity:0;`;
-    p.textContent=fl[Math.floor(Math.random()*fl.length)];
+  const fl = ['🌸','🌷','🌺'];
+  setInterval(() => {
+    const p = document.createElement('span');
+    const left = Math.random() > 0.5;
+    const x = left ? Math.random()*10 : 90+Math.random()*9;
+    const dur = 5+Math.random()*5;
+    p.style.cssText = `position:fixed;left:${x}%;top:-20px;font-size:${11+Math.random()*10}px;pointer-events:none;animation:sidefall ${dur}s linear forwards;opacity:0;`;
+    p.textContent = fl[Math.floor(Math.random()*fl.length)];
     flLayer.appendChild(p);
-    setTimeout(()=>p.remove(),(dur*1000)+300);
-  },600);
+    setTimeout(() => p.remove(), (dur*1000)+300);
+  }, 600);
 }
 
 /* ── ENDING LOGIC ── */
 function showEnding(){
-  document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   document.getElementById('scene-end').classList.add('show');
-  window.scrollTo({top:0,behavior:'smooth'});
-  const rain=document.getElementById('end-rain');
-  const items=['🥹','🌸','😭','🌷','💌','🌺','🌹','😭'];
-  for(let i=0;i<55;i++){
-    setTimeout(()=>{
-      const e=document.createElement('span');
-      const dur=4+Math.random()*5;
-      e.className='ri';
-      e.style.cssText=`left:${Math.random()*100}%;font-size:${16+Math.random()*28}px;animation-duration:${dur}s;animation-delay:${Math.random()*3}s;`;
-      e.textContent=items[Math.floor(Math.random()*items.length)];
+  window.scrollTo({top:0, behavior:'smooth'});
+  const rain = document.getElementById('end-rain');
+  const items = ['🥹','🌸','🥺','🌷','💌','🌺','🌸','🥹'];
+  for(let i = 0; i < 55; i++){
+    setTimeout(() => {
+      const e = document.createElement('span');
+      const dur = 4+Math.random()*5;
+      e.className = 'ri';
+      e.style.cssText = `left:${Math.random()*100}%;font-size:${16+Math.random()*28}px;animation-duration:${dur}s;animation-delay:${Math.random()*3}s;`;
+      e.textContent = items[Math.floor(Math.random()*items.length)];
       rain.appendChild(e);
-    },i*55);
-  }
-}
-
-/* ── MUSIC LOGIC (Play/Pause Support) ── */
-let isPlaying = false;
-let firstPlay = true;
-
-function playSpecialSong() {
-  const song = document.getElementById('letter-song');
-  const btn = document.getElementById('play-music-btn');
-  
-  if (firstPlay) {
-    // First time clicking: Set volume and jump to 1:00
-    song.volume = 0.3;
-    song.currentTime = 60;
-    firstPlay = false;
-    
-    // Safety check: sometimescurrentTime jump fails on initial play
-    song.addEventListener('playing', () => {
-        if(song.currentTime < 60) song.currentTime = 60;
-    }, { once: true });
-  }
-
-  if (isPlaying) {
-    // Pause functionality
-    song.pause();
-    btn.innerHTML = "Resume song 🎵";
-    btn.classList.remove('playing');
-    isPlaying = false;
-  } else {
-    // Play/Resume functionality
-    song.play().then(() => {
-        btn.innerHTML = "Pause song ⏸️";
-        btn.classList.add('playing');
-        isPlaying = true;
-
-        // Reset state after the full 40 seconds duration (reaches 1:40)
-        const timeLeft = (100 - song.currentTime) * 1000;
-        if(timeLeft > 0) {
-            setTimeout(() => {
-                if(song.currentTime >= 100) { // Safety check to ensure we hit end point
-                    song.pause();
-                    btn.innerHTML = "Song played 💖";
-                    btn.classList.remove('playing');
-                    btn.disabled = true; // Button finished
-                    isPlaying = false;
-                }
-            },timeLeft);
-        }
-
-    }).catch(err => {
-      console.error("Playback Error:", err);
-      // alert("Please tap again to play!");
-    });
+    }, i*55);
   }
 }
 </script>
